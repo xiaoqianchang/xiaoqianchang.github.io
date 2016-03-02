@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xiaoqianchang.github.io/"/>
-  <updated>2016-03-02T15:38:01.569Z</updated>
+  <updated>2016-03-01T07:38:06.065Z</updated>
   <id>http://xiaoqianchang.github.io/</id>
   
   <author>
@@ -16,54 +16,10 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Markdown编辑器</title>
-    <link href="http://xiaoqianchang.github.io/2016/03/02/Markdown%E7%BC%96%E8%BE%91%E5%99%A8/"/>
-    <id>http://xiaoqianchang.github.io/2016/03/02/Markdown编辑器/</id>
-    <published>2016-03-02T15:38:01.569Z</published>
-    <updated>2016-03-02T15:38:01.569Z</updated>
-    
-    <content type="html">&lt;p&gt;&lt;strong&gt;摘要:&lt;/strong&gt;作为一个开源人，如果你不会使用Markdown语法，那你就OUT了！Markdown 是 2004 年由 John Gruberis 设计和开发的纯文本格式的语法，是一种可以使用普通文本编辑器编写的标记语言，通过简单的标记语法，它可以使普通文本内容具有一定的格式。&lt;/p&gt;
-&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;p&gt;作为一个开源人，如果你不会使用Markdown语法，那你就OUT了！Markdown 是 2004 年由 John Gruberis 设计和开发的纯文本格式的语法，非常的简单实用。&lt;a href=&quot;http://code.csdn.net/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt; CSDN CODE&lt;/a&gt; 平台的 &lt;a href=&quot;https://code.csdn.net/help&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;帮助文档&lt;/a&gt;、项目README文件、文档项目甚至包括ISSUES和项目评论等都是支持Markdown语法的！&lt;/p&gt;
-&lt;p&gt;以下，是我使用过的Markdown编辑器，喜欢用Markdown的朋友都来看看吧！&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://www.zybuluo.com&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Cmd Markdown&lt;/a&gt; 作业部落出品，也是一款不错的工具和博客平台兼顾的产品。全平台且提供web版&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;img src=&quot;http://7xrcic.com1.z0.glb.clouddn.com/zybuluo.png&quot; alt=&quot;作业部落&quot;&gt;&lt;/p&gt;
-&lt;p&gt;作业部落对于理科生来说跟容易驾驭。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://www.markdownpad.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;MarkdownPad&lt;/a&gt; 一款全功能的编辑器，被很多人称赞为 windows 平台最好用的markdown编辑器&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;img src=&quot;http://7xrcic.com1.z0.glb.clouddn.com/markdownpad.png&quot; alt=&quot;MarkdownPad&quot;&gt;&lt;/p&gt;
-&lt;p&gt;Markdown Pad 是 Windows 下的全功能 Markdown 编辑器。用户可以通过方便的键盘快捷键和工具栏按钮来使用或者移除 Markdown 格式。当你创建的时候，可以实时看到 HTML 格式的 Markdown 文档。当用户打字时，LivePreview 就会自动滚动到当前编辑的位置。&lt;/p&gt;
-&lt;p&gt;在这里安装MarkdownPad的时候，安装过程很简单，安装完成后这里点击“免费试用”，这没有试用期，可以免费一直使用。当然你想表达感谢之意支持就购买。还有就是破解。请看下面&lt;/p&gt;
-&lt;h2 id=&quot;MarkdownPad2-5-注册码破解&quot;&gt;&lt;a href=&quot;#MarkdownPad2-5-注册码破解&quot; class=&quot;headerlink&quot; title=&quot;MarkdownPad2.5 注册码破解&quot;&gt;&lt;/a&gt;MarkdownPad2.5 注册码破解&lt;/h2&gt;&lt;p&gt;在使用MarkdownPad2.5的时候&lt;br&gt;&lt;img src=&quot;http://7xrcic.com1.z0.glb.clouddn.com/markdownpad-version.png&quot; alt=&quot;&quot;&gt;&lt;br&gt;可以使用注册码破解：&lt;/p&gt;
-&lt;p&gt;邮箱:&lt;/p&gt;
-&lt;p&gt;Soar360@live.com&lt;/p&gt;
-&lt;p&gt;授权秘钥:&lt;/p&gt;
-&lt;p&gt;GBPduHjWfJU1mZqcPM3BikjYKF6xKhlKIys3i1MU2eJHqWGImDHzWdD6xhMNLGVpbP2M5SN6bnxn2kSE8qHqNY5&lt;br&gt;QaaRxmO3YSMHxlv2EYpjdwLcPwfeTG7kUdnhKE0vVy4RidP6Y2wZ0q74f47fzsZo45JE2hfQBFi2O9Jldjp1mW8&lt;br&gt;HUpTtLA2a5/sQytXJUQl/QKO0jUQY4pa5CCx20sV1ClOTZtAGngSOJtIOFXK599sBr5aIEFyH0K7H4BoNMiiDMn&lt;br&gt;xt1rD8Vb/ikJdhGMMQr0R4B+L3nWU97eaVPTRKfWGDE8/eAgKzpGwrQQoDh+nzX1xoVQ8NAuH+s4UcSeQ==&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;strong&gt;摘要:&lt;/strong&gt;作为一个开源人，如果你不会使用Markdown语法，那你就OUT了！Markdown 是 2004 年由 John Gruberis 设计和开发的纯文本格式的语法，是一种可以使用普通文本编辑器编写的标记语言，通过简单的标记语法，它可以使普通文本内容具有一定的格式。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Markdown" scheme="http://xiaoqianchang.github.io/categories/Markdown/"/>
-    
-    
-      <category term="Markdown" scheme="http://xiaoqianchang.github.io/tags/Markdown/"/>
-    
-      <category term="工具" scheme="http://xiaoqianchang.github.io/tags/%E5%B7%A5%E5%85%B7/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Git常用命令</title>
-    <link href="http://xiaoqianchang.github.io/2016/03/01/Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
-    <id>http://xiaoqianchang.github.io/2016/03/01/Git常用命令/</id>
-    <published>2016-03-01T07:38:06.065Z</published>
+    <link href="http://xiaoqianchang.github.io/2016/03/02/Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
+    <id>http://xiaoqianchang.github.io/2016/03/02/Git常用命令/</id>
+    <published>2016-03-02T15:47:13.181Z</published>
     <updated>2016-03-01T07:38:06.065Z</updated>
     
     <content type="html">&lt;h2 id=&quot;在Git下创建一个空分支&quot;&gt;&lt;a href=&quot;#在Git下创建一个空分支&quot; class=&quot;headerlink&quot; title=&quot;在Git下创建一个空分支&quot;&gt;&lt;/a&gt;在Git下创建一个空分支&lt;/h2&gt;&lt;h3 id=&quot;怎样安全的进行这项操作？&quot;&gt;&lt;a href=&quot;#怎样安全的进行这项操作？&quot; class=&quot;headerlink&quot; title=&quot;怎样安全的进行这项操作？&quot;&gt;&lt;/a&gt;怎样安全的进行这项操作？&lt;/h3&gt;&lt;p&gt;我们需要建立一个孤立的分支，为了尽可能的保证数据安全，最好重新clone一份代码。&lt;/p&gt;
@@ -227,6 +183,50 @@ rm &amp;apos;.gitignore&amp;apos;
     
     
       <category term="Git" scheme="http://xiaoqianchang.github.io/tags/Git/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Markdown编辑器</title>
+    <link href="http://xiaoqianchang.github.io/2016/03/02/Markdown%E7%BC%96%E8%BE%91%E5%99%A8/"/>
+    <id>http://xiaoqianchang.github.io/2016/03/02/Markdown编辑器/</id>
+    <published>2016-03-02T15:46:24.054Z</published>
+    <updated>2016-03-02T15:46:24.054Z</updated>
+    
+    <content type="html">&lt;p&gt;&lt;strong&gt;摘要:&lt;/strong&gt;作为一个开源人，如果你不会使用Markdown语法，那你就OUT了！Markdown 是 2004 年由 John Gruberis 设计和开发的纯文本格式的语法，是一种可以使用普通文本编辑器编写的标记语言，通过简单的标记语法，它可以使普通文本内容具有一定的格式。&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;p&gt;作为一个开源人，如果你不会使用Markdown语法，那你就OUT了！Markdown 是 2004 年由 John Gruberis 设计和开发的纯文本格式的语法，非常的简单实用。&lt;a href=&quot;http://code.csdn.net/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;CSDN CODE&lt;/a&gt; 平台的 &lt;a href=&quot;https://code.csdn.net/help&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;帮助文档&lt;/a&gt;、项目README文件、文档项目甚至包括ISSUES和项目评论等都是支持Markdown语法的！&lt;/p&gt;
+&lt;p&gt;以下，是我使用过的Markdown编辑器，喜欢用Markdown的朋友都来看看吧！&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.zybuluo.com&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Cmd Markdown&lt;/a&gt; 作业部落出品，也是一款不错的工具和博客平台兼顾的产品。全平台且提供web版&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xrcic.com1.z0.glb.clouddn.com/zybuluo.png&quot; alt=&quot;作业部落&quot;&gt;&lt;/p&gt;
+&lt;p&gt;作业部落对于理科生来说跟容易驾驭。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.markdownpad.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;MarkdownPad&lt;/a&gt; 一款全功能的编辑器，被很多人称赞为 windows 平台最好用的markdown编辑器&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xrcic.com1.z0.glb.clouddn.com/markdownpad.png&quot; alt=&quot;MarkdownPad&quot;&gt;&lt;/p&gt;
+&lt;p&gt;Markdown Pad 是 Windows 下的全功能 Markdown 编辑器。用户可以通过方便的键盘快捷键和工具栏按钮来使用或者移除 Markdown 格式。当你创建的时候，可以实时看到 HTML 格式的 Markdown 文档。当用户打字时，LivePreview 就会自动滚动到当前编辑的位置。&lt;/p&gt;
+&lt;p&gt;在这里安装MarkdownPad的时候，安装过程很简单，安装完成后这里点击“免费试用”，这没有试用期，可以免费一直使用。当然你想表达感谢之意支持就购买。还有就是破解。请看下面&lt;/p&gt;
+&lt;h2 id=&quot;MarkdownPad2-5-注册码破解&quot;&gt;&lt;a href=&quot;#MarkdownPad2-5-注册码破解&quot; class=&quot;headerlink&quot; title=&quot;MarkdownPad2.5 注册码破解&quot;&gt;&lt;/a&gt;MarkdownPad2.5 注册码破解&lt;/h2&gt;&lt;p&gt;在使用MarkdownPad2.5的时候&lt;br&gt;&lt;img src=&quot;http://7xrcic.com1.z0.glb.clouddn.com/markdownpad-version.png&quot; alt=&quot;&quot;&gt;&lt;br&gt;可以使用注册码破解：&lt;/p&gt;
+&lt;p&gt;邮箱:&lt;/p&gt;
+&lt;p&gt;Soar360@live.com&lt;/p&gt;
+&lt;p&gt;授权秘钥:&lt;/p&gt;
+&lt;p&gt;GBPduHjWfJU1mZqcPM3BikjYKF6xKhlKIys3i1MU2eJHqWGImDHzWdD6xhMNLGVpbP2M5SN6bnxn2kSE8qHqNY5&lt;br&gt;QaaRxmO3YSMHxlv2EYpjdwLcPwfeTG7kUdnhKE0vVy4RidP6Y2wZ0q74f47fzsZo45JE2hfQBFi2O9Jldjp1mW8&lt;br&gt;HUpTtLA2a5/sQytXJUQl/QKO0jUQY4pa5CCx20sV1ClOTZtAGngSOJtIOFXK599sBr5aIEFyH0K7H4BoNMiiDMn&lt;br&gt;xt1rD8Vb/ikJdhGMMQr0R4B+L3nWU97eaVPTRKfWGDE8/eAgKzpGwrQQoDh+nzX1xoVQ8NAuH+s4UcSeQ==&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;摘要:&lt;/strong&gt;作为一个开源人，如果你不会使用Markdown语法，那你就OUT了！Markdown 是 2004 年由 John Gruberis 设计和开发的纯文本格式的语法，是一种可以使用普通文本编辑器编写的标记语言，通过简单的标记语法，它可以使普通文本内容具有一定的格式。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Markdown" scheme="http://xiaoqianchang.github.io/categories/Markdown/"/>
+    
+    
+      <category term="Markdown" scheme="http://xiaoqianchang.github.io/tags/Markdown/"/>
+    
+      <category term="工具" scheme="http://xiaoqianchang.github.io/tags/%E5%B7%A5%E5%85%B7/"/>
     
   </entry>
   
