@@ -1,0 +1,985 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Android," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="xiaoqianchang" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
+
+
+
+
+
+
+<meta name="description" content="摘要：在工作中突然发现以前多么熟悉的知识技能现在不能愉快的玩耍了，想要再次使用以前的一些知识还得Google，这是一件多么伤心的事啊。这些天比较闲，打算把最近用到的小知识总结下，这里会持续更新。还是应了那句话，“知识在于积累”。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android弹药库">
+<meta property="og:url" content="http://xiaoqianchang.github.io/2016/03/10/Android弹药库/index.html">
+<meta property="og:site_name" content="xiaoqianchang">
+<meta property="og:description" content="摘要：在工作中突然发现以前多么熟悉的知识技能现在不能愉快的玩耍了，想要再次使用以前的一些知识还得Google，这是一件多么伤心的事啊。这些天比较闲，打算把最近用到的小知识总结下，这里会持续更新。还是应了那句话，“知识在于积累”。">
+<meta property="og:updated_time" content="2016-03-11T06:24:52.447Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android弹药库">
+<meta name="twitter:description" content="摘要：在工作中突然发现以前多么熟悉的知识技能现在不能愉快的玩耍了，想要再次使用以前的一些知识还得Google，这是一件多么伤心的事啊。这些天比较闲，打算把最近用到的小知识总结下，这里会持续更新。还是应了那句话，“知识在于积累”。">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"right","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> Android弹药库 | xiaoqianchang </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?3d10640fccdd16cb0ba427bbac5a07db";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">xiaoqianchang</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu menu-left">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+      
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', '4KRHx7T9426EJKxriKd6','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Android弹药库
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-03-10T11:04:35+08:00" content="2016-03-10">
+              2016-03-10
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/03/10/Android弹药库/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/10/Android弹药库/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/03/10/Android弹药库/" class="leancloud_visitors" data-flag-title="Android弹药库">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span> 
+               <span class="leancloud-visitors-count"></span> 
+              </span>
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><strong>摘要：</strong>在工作中突然发现以前多么熟悉的知识技能现在不能愉快的玩耍了，想要再次使用以前的一些知识还得Google，这是一件多么伤心的事啊。这些天比较闲，打算把最近用到的小知识总结下，这里会持续更新。还是应了那句话，“知识在于积累”。</p>
+<a id="more"></a>
+<p>好，开工啦！</p>
+<h2 id="设备信息的获取"><a href="#设备信息的获取" class="headerlink" title="设备信息的获取"></a>设备信息的获取</h2><p>下面以Samsung SM-N9006（Android 4.4.2 API19）为例</p>
+<h3 id="手机的型号"><a href="#手机的型号" class="headerlink" title="手机的型号"></a>手机的型号</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/** 手机的型号 */</span><br><span class="line">public static String <span class="function"><span class="title">getMobileType</span></span>() &#123;</span><br><span class="line">	<span class="built_in">return</span> android.os.Build.MODEL; // SM-N9006</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="手机的OS版本号"><a href="#手机的OS版本号" class="headerlink" title="手机的OS版本号"></a>手机的OS版本号</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">/** 手机的OS版本号 */</span><br><span class="line">public static String <span class="function"><span class="title">getSdkVersion</span></span>() &#123;</span><br><span class="line">	<span class="built_in">return</span> android.os.Build.VERSION.RELEASE; // 指的是版本，例如<span class="number">4.4</span>.<span class="number">2</span></span><br><span class="line">	// android.os.Build.VERSION.SDK; // 指的是level，例如 <span class="number">19</span></span><br><span class="line">	// android.os.Build.VERSION.SDK_INT; // 指的是level，例如 <span class="number">19</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="设备的DeviceId"><a href="#设备的DeviceId" class="headerlink" title="设备的DeviceId"></a>设备的DeviceId</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * @<span class="built_in">return</span> 设备的DeviceId,如果获取不到，就将该手机的Wifi Mac地址作为唯一识别码</span><br><span class="line"> */</span><br><span class="line">public static String <span class="function"><span class="title">getDeviceId</span></span>() &#123;</span><br><span class="line">	TelephonyManager tm = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);</span><br><span class="line">	String deviceId = tm.getDeviceId();</span><br><span class="line">	<span class="keyword">if</span> (deviceId == null || deviceId.trim().length() == <span class="number">0</span>) &#123;</span><br><span class="line">		WifiManager wifi = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);</span><br><span class="line">		WifiInfo info = wifi.getConnectionInfo();</span><br><span class="line">		deviceId = info.getMacAddress();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">return</span> deviceId;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="APP信息的获取"><a href="#APP信息的获取" class="headerlink" title="APP信息的获取"></a>APP信息的获取</h2><h3 id="获取PackageInfo"><a href="#获取PackageInfo" class="headerlink" title="获取PackageInfo"></a>获取PackageInfo</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">public static PackageInfo <span class="function"><span class="title">getPackageInfo</span></span>() &#123;</span><br><span class="line">		PackageInfo pi = null;</span><br><span class="line">		try &#123;</span><br><span class="line">			pi = context.getPackageManager()</span><br><span class="line">					.getPackageInfo(context.getPackageName(), PackageManager.GET_CONFIGURATIONS);</span><br><span class="line">		&#125; catch (NameNotFoundException e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">return</span> pi;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="获取版本号"><a href="#获取版本号" class="headerlink" title="获取版本号"></a>获取版本号</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/** 手机版本号 */</span><br><span class="line">public static int <span class="function"><span class="title">getSoftVersion</span></span>() &#123;</span><br><span class="line">	<span class="built_in">return</span> getPackageInfo().versionCode;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="获取版本信息"><a href="#获取版本信息" class="headerlink" title="获取版本信息"></a>获取版本信息</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/** 手机的版本名 */</span><br><span class="line">public static String <span class="function"><span class="title">getVersionName</span></span>() &#123;</span><br><span class="line">	<span class="built_in">return</span> getPackageInfo().versionName;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="检查apk文件是否为一个完整的apk文件"><a href="#检查apk文件是否为一个完整的apk文件" class="headerlink" title="检查apk文件是否为一个完整的apk文件"></a>检查apk文件是否为一个完整的apk文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">/** 检查下载完成的apk文件，是否为一个完整的apk文件 */</span><br><span class="line">public static boolean checkApkFile(String apkFilePath) &#123;</span><br><span class="line">	boolean result = <span class="literal">false</span>;</span><br><span class="line">	try &#123;</span><br><span class="line">		PackageManager pManager = FrameworkController.getInstance().getPackageManager();</span><br><span class="line">		PackageInfo pInfo = pManager.getPackageArchiveInfo(apkFilePath, PackageManager.GET_ACTIVITIES);</span><br><span class="line">		<span class="keyword">if</span> (pInfo == null) &#123;</span><br><span class="line">			result = <span class="literal">false</span>;</span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">			result = <span class="literal">true</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125; catch (Exception e) &#123;</span><br><span class="line">		result = <span class="literal">false</span>;</span><br><span class="line">		e.printStackTrace();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="存储操作"><a href="#存储操作" class="headerlink" title="存储操作"></a>存储操作</h2><h3 id="外置存储-sdcard"><a href="#外置存储-sdcard" class="headerlink" title="外置存储(sdcard)"></a>外置存储(sdcard)</h3><h4 id="检查sdcard是否存在"><a href="#检查sdcard是否存在" class="headerlink" title="检查sdcard是否存在"></a>检查sdcard是否存在</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">/** 检查sdcard是否存在(安装好) */</span><br><span class="line">public static boolean <span class="function"><span class="title">isSdcardExist</span></span>() &#123;</span><br><span class="line">	<span class="keyword">if</span> (android.os.Environment.getExternalStorageState().equals(</span><br><span class="line">			android.os.Environment.MEDIA_MOUNTED))</span><br><span class="line">		<span class="built_in">return</span> <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>可以这样配置路径<br><code>Environment.getExternalStorageDirectory().getAbsolutePath()+ File.separator+&quot;MobileOffice&quot;+File.separator+&quot;upgrade&quot;</code></p>
+<h4 id="得到外置存储的root的绝对路径"><a href="#得到外置存储的root的绝对路径" class="headerlink" title="得到外置存储的root的绝对路径"></a>得到外置存储的root的绝对路径</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/** 得到外置存储的root的绝对路径，一般为 /storage/emulated/<span class="number">0</span>  */</span><br><span class="line">public static String <span class="function"><span class="title">getStorageRootDir</span></span>() &#123; // /mnt/sdcard</span><br><span class="line">	<span class="built_in">return</span> Environment.getExternalStorageDirectory().getAbsolutePath();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="创建sdcard的文件夹"><a href="#创建sdcard的文件夹" class="headerlink" title="创建sdcard的文件夹"></a>创建sdcard的文件夹</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">// dir 要创建sdcard的文件夹的绝对路径</span><br><span class="line">public  static boolean createDir(String dir) &#123;</span><br><span class="line">	File file = new File(dir);</span><br><span class="line">	<span class="keyword">if</span>(!file.exists())&#123;</span><br><span class="line">		<span class="built_in">return</span> file.mkdirs();</span><br><span class="line">	&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">		<span class="built_in">return</span> <span class="literal">true</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="内部存储"><a href="#内部存储" class="headerlink" title="内部存储"></a>内部存储</h3><p>得到cashe路径</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String cachePath = context.getCacheDir().getAbsolutePath();</span><br></pre></td></tr></table></figure>
+<h2 id="MD5加密"><a href="#MD5加密" class="headerlink" title="MD5加密"></a>MD5加密</h2><h3 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">public final static String MD5(String s) &#123;</span><br><span class="line">	char hexDigits[] = &#123; <span class="string">'0'</span>, <span class="string">'1'</span>, <span class="string">'2'</span>, <span class="string">'3'</span>, <span class="string">'4'</span>, <span class="string">'5'</span>, <span class="string">'6'</span>, <span class="string">'7'</span>, <span class="string">'8'</span>, <span class="string">'9'</span>, <span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>, <span class="string">'e'</span>, <span class="string">'f'</span> &#125;;</span><br><span class="line">	try &#123;</span><br><span class="line">		byte[] btInput = s.getBytes();</span><br><span class="line">		// 获得MD5摘要算法的 MessageDigest 对象</span><br><span class="line">		MessageDigest mdInst = MessageDigest.getInstance(<span class="string">"MD5"</span>);</span><br><span class="line">		// 使用指定的字节更新摘要</span><br><span class="line">		mdInst.update(btInput);</span><br><span class="line">		// 获得密文</span><br><span class="line">		byte[] md = mdInst.digest();</span><br><span class="line">		// 把密文转换成十六进制的字符串形式</span><br><span class="line">		int j = md.length;</span><br><span class="line">		char str[] = new char[j * <span class="number">2</span>];</span><br><span class="line">		int k = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span> (int i = <span class="number">0</span>; i &lt; j; i++) &#123;</span><br><span class="line">			byte byte0 = md[i];</span><br><span class="line">			str[k++] = hexDigits[byte0 &gt;&gt;&gt; <span class="number">4</span> &amp; <span class="number">0</span>xf];</span><br><span class="line">			str[k++] = hexDigits[byte0 &amp; <span class="number">0</span>xf];</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">return</span> new String(str);</span><br><span class="line">	&#125; catch (Exception e) &#123;</span><br><span class="line">		e.printStackTrace();</span><br><span class="line">		<span class="built_in">return</span> null;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">/** 对原始字符串进行md5的<span class="built_in">hash</span>计算 */</span><br><span class="line">private static String md5(String string) &#123;</span><br><span class="line">	byte[] <span class="built_in">hash</span>;</span><br><span class="line">	try &#123;</span><br><span class="line">		<span class="built_in">hash</span> = MessageDigest.getInstance(<span class="string">"MD5"</span>).digest(string.getBytes(<span class="string">"UTF-8"</span>));</span><br><span class="line">	&#125; catch (NoSuchAlgorithmException e) &#123;</span><br><span class="line">		throw new RuntimeException(<span class="string">"Huh, MD5 should be supported?"</span>, e);</span><br><span class="line">	&#125; catch (UnsupportedEncodingException e) &#123;</span><br><span class="line">		throw new RuntimeException(<span class="string">"Huh, UTF-8 should be supported?"</span>, e);</span><br><span class="line">	&#125;</span><br><span class="line">	StringBuilder hex = new StringBuilder(hash.length * <span class="number">2</span>);</span><br><span class="line">	<span class="keyword">for</span> (byte b : <span class="built_in">hash</span>) &#123;</span><br><span class="line">		<span class="keyword">if</span> ((b &amp; <span class="number">0</span>xFF) &lt; <span class="number">0</span>x10)</span><br><span class="line">			hex.append(<span class="string">"0"</span>);</span><br><span class="line">		hex.append(Integer.toHexString(b &amp; <span class="number">0</span>xFF));</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">return</span> hex.toString();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="方法三"><a href="#方法三" class="headerlink" title="方法三"></a>方法三</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">public String Md5(String plainText) &#123;</span><br><span class="line">	String result = <span class="string">""</span>;</span><br><span class="line">	try &#123;</span><br><span class="line">		MessageDigest md = MessageDigest.getInstance(<span class="string">"MD5"</span>);</span><br><span class="line">		md.update(plainText.getBytes());</span><br><span class="line">		byte b[] = md.digest();</span><br><span class="line">		int i;</span><br><span class="line">		StringBuffer buf = new StringBuffer(<span class="string">""</span>);</span><br><span class="line">		<span class="keyword">for</span> (int offset = <span class="number">0</span>; offset &lt; b.length; offset++) &#123;</span><br><span class="line">			i = b[offset];</span><br><span class="line">			<span class="keyword">if</span> (i &lt; <span class="number">0</span>)</span><br><span class="line">				i += <span class="number">256</span>;</span><br><span class="line">			<span class="keyword">if</span> (i &lt; <span class="number">16</span>)</span><br><span class="line">				buf.append(<span class="string">"0"</span>);</span><br><span class="line">			buf.append(Integer.toHexString(i));</span><br><span class="line">		&#125;</span><br><span class="line">		result = buf.toString().toUpperCase();// <span class="number">32</span>位的加密（转成大写）</span><br><span class="line">		buf.toString().substring(<span class="number">8</span>, <span class="number">24</span>);// <span class="number">16</span>位的加密</span><br><span class="line">	&#125; catch (NoSuchAlgorithmException e) &#123;</span><br><span class="line">		e.printStackTrace();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="判断给定字符串是否空白串"><a href="#判断给定字符串是否空白串" class="headerlink" title="判断给定字符串是否空白串"></a>判断给定字符串是否空白串</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 判断给定字符串是否空白串。&lt;br&gt;</span><br><span class="line"> * 空白串是指由空格、制表符、回车符、换行符组成的字符串&lt;br&gt;</span><br><span class="line"> * StringUtils.isBlank(null) = <span class="literal">true</span> StringUtils.isBlank(<span class="string">""</span>) = <span class="literal">true</span> StringUtils.isBlank(<span class="string">" "</span>) = <span class="literal">true</span></span><br><span class="line"> * </span><br><span class="line"> * @<span class="built_in">return</span> boolean</span><br><span class="line"> */</span><br><span class="line">public static boolean isBlank(CharSequence cs) &#123;</span><br><span class="line">	int strLen;</span><br><span class="line">	<span class="keyword">if</span> (cs == null || (strLen = cs.length()) == <span class="number">0</span>) &#123;</span><br><span class="line">		<span class="built_in">return</span> <span class="literal">true</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span> (int i = <span class="number">0</span>; i &lt; strLen; i++) &#123;</span><br><span class="line">		<span class="keyword">if</span> (!Character.isWhitespace(cs.charAt(i))) &#123;</span><br><span class="line">			<span class="built_in">return</span> <span class="literal">false</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="对指定字符串隐藏"><a href="#对指定字符串隐藏" class="headerlink" title="对指定字符串隐藏"></a>对指定字符串隐藏</h2><h3 id="对字符串中间部分隐藏"><a href="#对字符串中间部分隐藏" class="headerlink" title="对字符串中间部分隐藏"></a>对字符串中间部分隐藏</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 对身份证号和就诊卡号进行部分隐藏 &lt;/br&gt;</span><br><span class="line"> * &lt;pre&gt;</span><br><span class="line"> * StringUtils.hidePartString(<span class="string">"abcdefghi"</span>, <span class="number">3</span> , <span class="number">4</span>) = abc**fghi</span><br><span class="line"> * &lt;/pre&gt;</span><br><span class="line"> */</span><br><span class="line">public static String hideMiddleString(String str, int prefixCount, int suffixCount) &#123;</span><br><span class="line">	<span class="keyword">if</span> (null == str || <span class="string">""</span>.equals(str)) &#123;</span><br><span class="line">		<span class="built_in">return</span> <span class="string">""</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	int length = str.length();</span><br><span class="line">	<span class="keyword">if</span> (length &lt;= (prefixCount + suffixCount))</span><br><span class="line">		<span class="built_in">return</span> str;</span><br><span class="line"></span><br><span class="line">	int count = length - prefixCount - suffixCount;</span><br><span class="line">	String temp1 = str.substring(<span class="number">0</span>, prefixCount);</span><br><span class="line">	String temp2 = <span class="string">""</span>, temp3 = <span class="string">""</span>;</span><br><span class="line">	<span class="keyword">for</span> (int i = <span class="number">0</span>; i &lt; count; i++)</span><br><span class="line">		temp2 += <span class="string">"*"</span>;</span><br><span class="line">	temp3 = str.substring(length - suffixCount, length);</span><br><span class="line">	<span class="built_in">return</span> temp1 + temp2 + temp3;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="对字符串两边部分隐藏"><a href="#对字符串两边部分隐藏" class="headerlink" title="对字符串两边部分隐藏"></a>对字符串两边部分隐藏</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 对身份证号和就诊卡号进行部分隐藏 &lt;/br&gt;</span><br><span class="line"> * &lt;pre&gt;</span><br><span class="line"> * StringUtils.hidePartString(<span class="string">"abcdefghi"</span>, <span class="number">3</span> , <span class="number">4</span>) = ***de****</span><br><span class="line"> * &lt;/pre&gt;</span><br><span class="line"> */</span><br><span class="line">public static String hidePartString2(String str, int prefixCount, int suffixCount) &#123;</span><br><span class="line">	<span class="keyword">if</span> (null == str || <span class="string">""</span>.equals(str)) &#123;</span><br><span class="line">		<span class="built_in">return</span> <span class="string">""</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	int length = str.length();</span><br><span class="line">	<span class="keyword">if</span> (length &lt;= (prefixCount + suffixCount))</span><br><span class="line">		<span class="built_in">return</span> str;</span><br><span class="line"></span><br><span class="line">	String temp1 = str.substring(prefixCount, length - suffixCount);</span><br><span class="line">	String temp2 = <span class="string">""</span>, temp3 = <span class="string">""</span>;</span><br><span class="line">	<span class="keyword">for</span> (int i = <span class="number">0</span>; i &lt; prefixCount; i++)</span><br><span class="line">		temp2 += <span class="string">"*"</span>;</span><br><span class="line">	<span class="keyword">for</span> (int i = <span class="number">0</span>; i &lt; suffixCount; i++)</span><br><span class="line">		temp3 += <span class="string">"*"</span>;</span><br><span class="line">	<span class="built_in">return</span> temp2 + temp1 + temp3;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="对-properties文件的加载解析"><a href="#对-properties文件的加载解析" class="headerlink" title="对.properties文件的加载解析"></a>对.properties文件的加载解析</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">// msgId 为键值对的key</span><br><span class="line">public static String getMessage(String msgId) &#123;</span><br><span class="line">	String resourcePath = <span class="string">"/assets/FailureMessage.properties"</span>;</span><br><span class="line">	Properties pro = new Properties();</span><br><span class="line">	try &#123;</span><br><span class="line">		pro.load(CommonUtils.class.getResourceAsStream(resourcePath));</span><br><span class="line">	&#125; catch (IOException e) &#123;</span><br><span class="line">		e.printStackTrace();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">return</span> pro.getProperty(msgId);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="得到所有进程Task最上面的Activity"><a href="#得到所有进程Task最上面的Activity" class="headerlink" title="得到所有进程Task最上面的Activity"></a>得到所有进程Task最上面的Activity</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public static String getTopActivity(Context context) &#123;</span><br><span class="line">	ActivityManager manager = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);</span><br><span class="line">	List&lt;RunningTaskInfo&gt; runningTaskInfos = manager.getRunningTasks(<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (runningTaskInfos != null)</span><br><span class="line">		<span class="built_in">return</span> runningTaskInfos.get(<span class="number">0</span>).topActivity.getClassName();</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">		<span class="built_in">return</span> <span class="string">""</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="获取Html相关内容"><a href="#获取Html相关内容" class="headerlink" title="获取Html相关内容"></a>获取Html相关内容</h2><h3 id="获取Html的title"><a href="#获取Html的title" class="headerlink" title="获取Html的title"></a>获取Html的title</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">// 通过正则表达式提取</span><br><span class="line">static final String REG_TITLE       = <span class="string">"&lt;title&gt;(.+)&lt;/title&gt;"</span>;</span><br><span class="line"></span><br><span class="line">public static String getTitle(String html) &#123;</span><br><span class="line">    String str = null;</span><br><span class="line">    Matcher matcher = Pattern.compile(REG_TITLE).matcher(html);</span><br><span class="line">    <span class="keyword">if</span> (matcher.find()) &#123;</span><br><span class="line">        str = matcher.group(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">return</span> str;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="获取Html的所欲IMG"><a href="#获取Html的所欲IMG" class="headerlink" title="获取Html的所欲IMG"></a>获取Html的所欲IMG</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">static final String REG_IMG         = <span class="string">"&lt;img.+src=\"(.+)\".+&gt;"</span>;</span><br><span class="line"></span><br><span class="line">public static String[] getImgUrl(String html) &#123;</span><br><span class="line">    String[] str = null;</span><br><span class="line">    Matcher matcher = Pattern.compile(REG_IMG).matcher(html);</span><br><span class="line">    <span class="keyword">if</span> (matcher.find()) &#123;</span><br><span class="line">        str = new String[matcher.groupCount()];</span><br><span class="line">        <span class="keyword">for</span> (int i = <span class="number">1</span>; i &lt;= matcher.groupCount(); i++)</span><br><span class="line">            str[i - <span class="number">1</span>] = matcher.group(i);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">return</span> str;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="获取Html的所欲meta"><a href="#获取Html的所欲meta" class="headerlink" title="获取Html的所欲meta"></a>获取Html的所欲meta</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">static final String REG_DESCRIPTION = <span class="string">".*&lt;meta name=\"description\" content=\"([^&gt;]+)\"&gt;.*"</span>;</span><br><span class="line"></span><br><span class="line">public static String getDescription(String html) &#123;</span><br><span class="line">    String str = null;</span><br><span class="line">    Matcher matcher = Pattern.compile(REG_DESCRIPTION).matcher(html);</span><br><span class="line">    <span class="keyword">if</span> (matcher.find()) &#123;</span><br><span class="line">        str = matcher.group(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">return</span> str;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="图片处理框架用法"><a href="#图片处理框架用法" class="headerlink" title="图片处理框架用法"></a>图片处理框架用法</h2><h3 id="ImageLoader-一"><a href="#ImageLoader-一" class="headerlink" title="ImageLoader(一)"></a>ImageLoader(一)</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">ImageLoader.getInstance().displayImage(</span><br><span class="line">		imgUrl,</span><br><span class="line">		imageView,</span><br><span class="line">		new DisplayImageOptions.Builder()</span><br><span class="line">				.showImageForEmptyUri(R.drawable.pic_loading_empty)</span><br><span class="line">				.showImageOnFail(R.drawable.pic_loading_error)</span><br><span class="line">				// .displayer(new RoundedBitmapDisplayer(<span class="number">10</span>))</span><br><span class="line">				// .considerExifParams(<span class="literal">true</span>)</span><br><span class="line">				.cacheInMemory(<span class="literal">true</span>).build());</span><br></pre></td></tr></table></figure>
+<p>或者：</p>
+<ol>
+<li><p>先定义DisplayImageOptions</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">public static DisplayImageOptions options = new DisplayImageOptions.Builder()</span><br><span class="line">    	.showImageForEmptyUri(R.drawable.default_patient)</span><br><span class="line">    	.showImageOnFail(R.drawable.default_patient)</span><br><span class="line">    	// .displayer(new RoundedBitmapDisplayer(<span class="number">10</span>))</span><br><span class="line">		// .considerExifParams(<span class="literal">true</span>)</span><br><span class="line">    	.cacheInMemory(<span class="literal">true</span>)</span><br><span class="line">    	.build();</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在使用的地方加载并显示</p>
+</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ImageLoader.getInstance().displayImage(imgUrl, imageView, options);</span><br></pre></td></tr></table></figure>
+<h3 id="ImageLoader-二"><a href="#ImageLoader-二" class="headerlink" title="ImageLoader(二)"></a>ImageLoader(二)</h3><ol>
+<li>先定义</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">// 第一次显示监听器</span><br><span class="line">public static class AnimateFirstDisplayListener extends SimpleImageLoadingListener &#123;</span><br><span class="line"></span><br><span class="line">    // 装imgUrl</span><br><span class="line">	public static final List&lt;String&gt; displayedImages = Collections.synchronizedList(new LinkedList&lt;String&gt;());</span><br><span class="line"></span><br><span class="line">	@Override</span><br><span class="line">	public void onLoadingComplete(String imageUri, View view, Bitmap loadedImage) &#123;</span><br><span class="line">		<span class="keyword">if</span> (loadedImage != null) &#123;</span><br><span class="line">			ImageView imageView = (ImageView) view;</span><br><span class="line">			boolean firstDisplay = !displayedImages.contains(imageUri);</span><br><span class="line">			<span class="keyword">if</span> (firstDisplay) &#123;</span><br><span class="line">				FadeInBitmapDisplayer.animate(imageView, <span class="number">500</span>);</span><br><span class="line">				displayedImages.add(imageUri);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol>
+<li>在使用的地方加载并显示</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ImageLoader.getInstance().displayImage(imgUrl,</span><br><span class="line">    		imageView, options,</span><br><span class="line">    		new AnimateFirstDisplayListener());</span><br></pre></td></tr></table></figure>
+<h2 id="下载网络图片"><a href="#下载网络图片" class="headerlink" title="下载网络图片"></a>下载网络图片</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">/** 图片Url保存为位图并进行缩放操作，通过传入图片url获取位图方法 */</span><br><span class="line">public static Bitmap getNetImage(Context context, String url) &#123;</span><br><span class="line">	Bitmap mBitmap = null;</span><br><span class="line">	URL myFileUrl = null;</span><br><span class="line">	try &#123;</span><br><span class="line">		myFileUrl = new URL(url);</span><br><span class="line">	&#125; catch (MalformedURLException e) &#123;</span><br><span class="line">		e.printStackTrace();</span><br><span class="line">	&#125;</span><br><span class="line">	try &#123;</span><br><span class="line">		<span class="keyword">if</span> (myFileUrl != null) &#123;</span><br><span class="line">			HttpURLConnection conn = (HttpURLConnection) myFileUrl.openConnection();</span><br><span class="line">			conn.setDoInput(<span class="literal">true</span>);</span><br><span class="line">			conn.connect();</span><br><span class="line">			InputStream is = conn.getInputStream();</span><br><span class="line">			mBitmap = BitmapFactory.decodeStream(is);</span><br><span class="line">			is.close();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125; catch (IOException e) &#123;</span><br><span class="line">		e.printStackTrace();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span> (mBitmap != null) &#123;</span><br><span class="line">//			DisplayMetrics metrics = new DisplayMetrics();</span><br><span class="line">//			metrics = context.getResources().getDisplayMetrics();</span><br><span class="line">//			int screenWidth = metrics.widthPixels;</span><br><span class="line">//			int screenHeight = metrics.heightPixels;</span><br><span class="line">		int bitmapWidth = mBitmap.getWidth();</span><br><span class="line">		int bitmapHeight = mBitmap.getHeight();</span><br><span class="line">//			<span class="built_in">float</span> scale = ((<span class="built_in">float</span>) screenWidth) / bitmapWidth;</span><br><span class="line">		Matrix matrix = new Matrix();</span><br><span class="line">//			matrix.postScale(scale, scale);</span><br><span class="line">		mBitmap = Bitmap.createBitmap(mBitmap, <span class="number">0</span>, <span class="number">0</span>, bitmapWidth, bitmapHeight, matrix, <span class="literal">true</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">return</span> mBitmap;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="手机号码限制"><a href="#手机号码限制" class="headerlink" title="手机号码限制"></a>手机号码限制</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 判别手机是否为正确手机号码； 号码段分配如下：</span><br><span class="line"> * </span><br><span class="line"> * 移动：<span class="number">134</span>、<span class="number">135</span>、<span class="number">136</span>、<span class="number">137</span>、<span class="number">138</span>、<span class="number">139</span>、<span class="number">150</span>、<span class="number">151</span>、<span class="number">157</span>(TD)、<span class="number">158</span>、<span class="number">159</span>、<span class="number">187</span>、<span class="number">188</span></span><br><span class="line"> * 联通：<span class="number">130</span>、<span class="number">131</span>、<span class="number">132</span>、<span class="number">152</span>、<span class="number">155</span>、<span class="number">156</span>、<span class="number">185</span>、<span class="number">186</span> 电信：<span class="number">133</span>、<span class="number">153</span>、<span class="number">180</span>、<span class="number">189</span>、（<span class="number">1349</span>卫通）</span><br><span class="line"> */</span><br><span class="line">public static boolean isMobileNum(String mobiles) &#123;</span><br><span class="line">	Pattern p1 = Pattern.compile(<span class="string">"(\\+[0-9]+[\\- \\.]*)?"</span> // +&lt;digits&gt;&lt;sdd&gt;*</span><br><span class="line">			+ <span class="string">"(\\([0-9]+\\)[\\- \\.]*)?"</span> // (&lt;digits&gt;)&lt;sdd&gt;*</span><br><span class="line">			+ <span class="string">"([0-9][0-9\\- \\.][0-9\\- \\.]+[0-9])"</span>);</span><br><span class="line">	// Pattern p = Pattern.compile(<span class="string">"^((13[0-9])|(15[^4,//D])|(18[0,5-9]))//d&#123;8&#125;$"</span>);</span><br><span class="line"></span><br><span class="line">	Matcher m = p1.matcher(mobiles);</span><br><span class="line">	<span class="built_in">return</span> m.matches();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public static boolean isMobileNum2(String num) &#123;</span><br><span class="line">	String str = <span class="string">"^((13[0-9])|(15[0-9])|(18[0-9])|(145)|(147))\\d&#123;8&#125;$"</span>;</span><br><span class="line">	Pattern p = Pattern.compile(str);</span><br><span class="line">	Matcher m = p.matcher(num);</span><br><span class="line">	<span class="built_in">return</span> m.matches();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="蓝牙Bluetooth"><a href="#蓝牙Bluetooth" class="headerlink" title="蓝牙Bluetooth"></a>蓝牙Bluetooth</h2><p>Android 中打开 Bluetooth：有以下三种方法：</p>
+<ol>
+<li>强制打开</li>
+<li>调用系统弹出框提示用户打开</li>
+<li>跳转到系统设置中让用户自己打开</li>
+</ol>
+<h3 id="获取BluetoothAdapter"><a href="#获取BluetoothAdapter" class="headerlink" title="获取BluetoothAdapter"></a>获取BluetoothAdapter</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public static BluetoothAdapter <span class="function"><span class="title">getBluetoothAdapter</span></span>() &#123;</span><br><span class="line">	<span class="built_in">return</span> BluetoothAdapter.getDefaultAdapter();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="当前-Android-设备是否支持-Bluetooth"><a href="#当前-Android-设备是否支持-Bluetooth" class="headerlink" title="当前 Android 设备是否支持 Bluetooth"></a>当前 Android 设备是否支持 Bluetooth</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// <span class="literal">true</span>：支持 Bluetooth <span class="literal">false</span>：不支持 Bluetooth</span><br><span class="line">public static boolean <span class="function"><span class="title">isBluetoothSupported</span></span>() &#123;</span><br><span class="line">	<span class="built_in">return</span> BluetoothAdapter.getDefaultAdapter() != null ? <span class="literal">true</span> : <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="当前-Android-设备的-bluetooth-是否已经开启"><a href="#当前-Android-设备的-bluetooth-是否已经开启" class="headerlink" title="当前 Android 设备的 bluetooth 是否已经开启"></a>当前 Android 设备的 bluetooth 是否已经开启</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">/** 没有直接的用户的允许绝不要开启 Bluetooth。如果你想要打开 Bluetooth 创建一个无线连接，你应当使用 ACTION_REQUEST_ENABLE Intent，这样会弹出一个提示框提示用户是否开启 Bluetooth，<span class="built_in">enable</span>() 方法仅提供给有 UI 、更改系统设置的应用来使用，例如“电源管理”应用。 */</span><br><span class="line">public static boolean <span class="function"><span class="title">isBluetoothEnabled</span></span>() &#123;</span><br><span class="line">	BluetoothAdapter bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();</span><br><span class="line">	<span class="keyword">if</span> (bluetoothAdapter != null) &#123;</span><br><span class="line">		<span class="built_in">return</span> bluetoothAdapter.isEnabled();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="强制打开"><a href="#强制打开" class="headerlink" title="强制打开"></a>强制打开</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// 强制开启当前 Android 设备的 Bluetooth</span><br><span class="line">public static boolean <span class="function"><span class="title">turnOnBluetooth</span></span>() &#123;</span><br><span class="line">	BluetoothAdapter bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();</span><br><span class="line">	<span class="keyword">if</span> (bluetoothAdapter != null) &#123;</span><br><span class="line">		<span class="built_in">return</span> bluetoothAdapter.enable();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="调用系统弹出框提示用户打开"><a href="#调用系统弹出框提示用户打开" class="headerlink" title="调用系统弹出框提示用户打开"></a>调用系统弹出框提示用户打开</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">// 弹出系统弹框提示用户打开 Bluetooth</span><br><span class="line">public static void openBluetooth(Activity activity) &#123;</span><br><span class="line">	// 请求打开 Bluetooth</span><br><span class="line">	Intent <span class="built_in">enable</span>BtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);  </span><br><span class="line">	<span class="built_in">enable</span>BtIntent.setAction(BluetoothAdapter.ACTION_REQUEST_DISCOVERABLE);</span><br><span class="line">	<span class="built_in">enable</span>BtIntent.putExtra(BluetoothAdapter.EXTRA_DISCOVERABLE_DURATION, BLUETOOTH_DISCOVERABLE_DURATION);</span><br><span class="line">	// 设置 Bluetooth 设备可以被其它 Bluetooth 设备扫描到</span><br><span class="line">	// 打开本机的蓝牙发现功能（默认打开<span class="number">120</span>秒，可以将时间最多延长至<span class="number">300</span>秒）  </span><br><span class="line">    // Intent discoveryIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_DISCOVERABLE); </span><br><span class="line">	// 设置 Bluetooth 设备可见时间</span><br><span class="line">    // discoveryIntent.putExtra(BluetoothAdapter.EXTRA_DISCOVERABLE_DURATION, <span class="number">300</span>);//设置持续时间（最多<span class="number">300</span>秒）</span><br><span class="line">    activity.startActivityForResult(<span class="built_in">enable</span>BtIntent, <span class="number">2</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="强制关闭"><a href="#强制关闭" class="headerlink" title="强制关闭"></a>强制关闭</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">BluetoothAdapter.getDefaultAdapter().disable();</span><br></pre></td></tr></table></figure>
+<h3 id="蓝牙是否打开"><a href="#蓝牙是否打开" class="headerlink" title="蓝牙是否打开"></a>蓝牙是否打开</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">BluetoothAdapter.getDefaultAdapter().isEnabled();</span><br></pre></td></tr></table></figure>
+<h3 id="获取以配对的蓝牙设备"><a href="#获取以配对的蓝牙设备" class="headerlink" title="获取以配对的蓝牙设备"></a>获取以配对的蓝牙设备</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 首次连接某蓝牙设备需要先配对，一旦配对成功，该设备的信息会被保存，以后连接时无需再配对，但是已配对的设备不一定是能连接的。</span><br><span class="line">Set&lt;BluetoothDevice&gt; devices = BluetoothAdapter.getDefaultAdapter().getBondedDevices();</span><br></pre></td></tr></table></figure>
+<h3 id="蓝牙广播接收器"><a href="#蓝牙广播接收器" class="headerlink" title="蓝牙广播接收器"></a>蓝牙广播接收器</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">public BroadcastReceiver receiver = new <span class="function"><span class="title">BroadcastReceiver</span></span>() &#123;    </span><br><span class="line">    @Override    </span><br><span class="line">    public void onReceive(Context context, Intent intent) &#123;    </span><br><span class="line">    	String action = intent.getAction();</span><br><span class="line">        BluetoothDevice device = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);</span><br><span class="line">        Log.i(<span class="string">"XC"</span>, <span class="string">"---:---"</span> + action);</span><br><span class="line">        <span class="keyword">if</span>(BluetoothDevice.ACTION_FOUND.equals(action)) &#123;</span><br><span class="line">            Log.i(<span class="string">"XC"</span>, device.getName() + <span class="string">"ACTION_FOUND"</span>);</span><br><span class="line">            Toast.makeText(context, device.getName() + <span class="string">" 发现设备"</span>, Toast.LENGTH_LONG).show();</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (BluetoothDevice.ACTION_ACL_CONNECTED.equals(action)) &#123;</span><br><span class="line">            Log.i(<span class="string">"XC"</span>, device.getName() + <span class="string">"ACTION_ACL_CONNECTED"</span>);</span><br><span class="line">            Toast.makeText(context, device.getName() + <span class="string">"该设备已连接"</span>, Toast.LENGTH_LONG).show();</span><br><span class="line">            intent.putExtra(<span class="string">"Bluetooth"</span>, <span class="string">"btMessage"</span>);</span><br><span class="line">            intent.setClass(context, OrderDetailsActivity.class);</span><br><span class="line">            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);</span><br><span class="line">            context.startActivity(intent);</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (BluetoothDevice.ACTION_ACL_DISCONNECT_REQUESTED.equals(action)) &#123;</span><br><span class="line">            Log.i(<span class="string">"XC"</span>, device.getName() + <span class="string">"ACTION_ACL_DISCONNECT_REQUESTED"</span>);</span><br><span class="line">            Toast.makeText(context, device.getName() + <span class="string">"该设备断开连接2"</span>, Toast.LENGTH_LONG).show();</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (BluetoothDevice.ACTION_ACL_DISCONNECTED.equals(action)) &#123;</span><br><span class="line">            Log.i(<span class="string">"XC"</span>, device.getName() + <span class="string">"ACTION_ACL_DISCONNECTED"</span>);</span><br><span class="line">            Toast.makeText(context, device.getName() + <span class="string">"该设备断开连接1"</span>, Toast.LENGTH_LONG).show();</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (BluetoothAdapter.ACTION_STATE_CHANGED.equals(action)) &#123;</span><br><span class="line">        	<span class="keyword">if</span> (getBluetoothAdapter().getState() == BluetoothAdapter.STATE_ON) &#123;</span><br><span class="line">        		Log.i(<span class="string">"XC"</span>, <span class="string">"蓝牙打开"</span>);</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (getBluetoothAdapter().getState() == BluetoothAdapter.STATE_OFF) &#123;</span><br><span class="line">            	Log.i(<span class="string">"XC"</span>, <span class="string">"蓝牙关闭"</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;    </span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">// 注册蓝牙监听广播</span><br><span class="line">public void initIntentFilter(Context context) &#123;    </span><br><span class="line">    // 设置广播信息过滤    </span><br><span class="line">    IntentFilter intentFilter = new IntentFilter();</span><br><span class="line">    intentFilter.addAction(BluetoothDevice.ACTION_FOUND);</span><br><span class="line">    intentFilter.addAction(BluetoothDevice.ACTION_ACL_CONNECTED);</span><br><span class="line">    intentFilter.addAction(BluetoothDevice.ACTION_ACL_DISCONNECT_REQUESTED);</span><br><span class="line">    intentFilter.addAction(BluetoothDevice.ACTION_ACL_DISCONNECTED);</span><br><span class="line">    intentFilter.addAction(BluetoothAdapter.ACTION_STATE_CHANGED);</span><br><span class="line">    // 注册广播接收器，接收并处理搜索结果</span><br><span class="line">    context.registerReceiver(receiver, intentFilter);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 取消注册蓝牙监听广播</span><br><span class="line">public void unregisterReceiver(Context context) &#123;</span><br><span class="line">	context.unregisterReceiver(receiver);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="音视频"><a href="#音视频" class="headerlink" title="音视频"></a>音视频</h2><h3 id="声音处理"><a href="#声音处理" class="headerlink" title="声音处理"></a>声音处理</h3><h4 id="播放系统-ogg文件"><a href="#播放系统-ogg文件" class="headerlink" title="播放系统.ogg文件"></a>播放系统.ogg文件</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br></pre></td><td class="code"><pre><span class="line">// 需要注意的是，如果MediaPlayer实例是由create方法创建的，那么第一次启动播放前不需要再调用prepare（）了，因为create方法里已经调用过了。</span><br><span class="line">public void playOgg(Context context, int resid) &#123;</span><br><span class="line">	// 按键声音播放设置及初始化</span><br><span class="line">	boolean mDTMFToneEnabled = <span class="literal">false</span>;         // 系统参数“按键操作音”标志位</span><br><span class="line">	try &#123;</span><br><span class="line">		// 获取系统参数“按键操作音”是否开启(<span class="number">1</span>:开,<span class="number">0</span>:关)</span><br><span class="line">		mDTMFToneEnabled = Settings.System.getInt(context.getContentResolver(), Settings.System.DTMF_TONE_WHEN_DIALING, <span class="number">1</span>) == <span class="number">1</span>;</span><br><span class="line">		Log.i(TAG, <span class="string">"系统按键操作音是否开启"</span> + mDTMFToneEnabled);</span><br><span class="line">		synchronized (mToneGeneratorLock) &#123;</span><br><span class="line">			<span class="keyword">if</span> (mDTMFToneEnabled) &#123;</span><br><span class="line">				// “按键操作音”是否开启的</span><br><span class="line">				<span class="built_in">return</span> ;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125; catch (Exception e) &#123;</span><br><span class="line">		 Log.d(TAG, e.getMessage());</span><br><span class="line">		 mDTMFToneEnabled = <span class="literal">false</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span> (mediaPlayer == null) &#123;</span><br><span class="line">		mediaPlayer = MediaPlayer.create(context, resid);</span><br><span class="line">	&#125;</span><br><span class="line">	Log.i(TAG, <span class="string">"mediaPlayer="</span> + mediaPlayer);</span><br><span class="line">	// 播放</span><br><span class="line">	play();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 播放</span><br><span class="line">private void <span class="function"><span class="title">play</span></span>() &#123;</span><br><span class="line">	try &#123;</span><br><span class="line">		mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);</span><br><span class="line">		mediaPlayer.setVolume(BEEP_VOLUME, BEEP_VOLUME);</span><br><span class="line">		mediaPlayer.setOnPreparedListener(preparedListener);</span><br><span class="line">		mediaPlayer.setOnErrorListener(errorListener);</span><br><span class="line">		// 当MediaPlayer调用seek()方法时触发该监听器</span><br><span class="line">//			mediaPlayer.setOnSeekCompleteListener(seekCompleteListener);</span><br><span class="line">		// Media Player的播放完成事件绑定事件监听器</span><br><span class="line">		// When the beep has finished playing, rewind to queue up another one.</span><br><span class="line">		mediaPlayer.setOnCompletionListener(conpletionListener);</span><br><span class="line">	&#125; catch (Exception  e) &#123;</span><br><span class="line">		e.printStackTrace();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 监听资源是否准备好</span><br><span class="line">OnPreparedListener preparedListener = new <span class="function"><span class="title">OnPreparedListener</span></span>() &#123;</span><br><span class="line">	@Override</span><br><span class="line">	public void onPrepared(MediaPlayer mp) &#123;</span><br><span class="line">		Log.i(TAG, <span class="string">"onPrepared---&gt;start()"</span>);</span><br><span class="line">		// 启动文件播放的方法，</span><br><span class="line">		mediaPlayer.start();</span><br><span class="line">		// 定位方法，可以让播放器从指定的位置开始播放,注意的是该方法是个异步方法</span><br><span class="line">//			mp.seekTo(<span class="number">0</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">// 监听播放是否seekTo()</span><br><span class="line">OnSeekCompleteListener seekCompleteListener = new <span class="function"><span class="title">OnSeekCompleteListener</span></span>() &#123;</span><br><span class="line">	@Override</span><br><span class="line">	public void onSeekComplete(MediaPlayer mp) &#123;</span><br><span class="line">		Log.i(TAG, <span class="string">"onSeekComplete"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">// 监听播放是否完成</span><br><span class="line">OnCompletionListener conpletionListener = new <span class="function"><span class="title">OnCompletionListener</span></span>() &#123;</span><br><span class="line">	@Override</span><br><span class="line">	public void onCompletion(MediaPlayer mp) &#123;</span><br><span class="line">		Log.i(TAG, <span class="string">"onCompletion"</span>);</span><br><span class="line">		mediaPlayer.release();</span><br><span class="line">		mediaPlayer = null;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">// 监听播放是否异常</span><br><span class="line">OnErrorListener errorListener = new <span class="function"><span class="title">OnErrorListener</span></span>() &#123;</span><br><span class="line">	@Override</span><br><span class="line">	public boolean onError(MediaPlayer mp, int what, int extra) &#123;</span><br><span class="line">		Log.i(TAG, <span class="string">"onError"</span>);</span><br><span class="line">		mediaPlayer.release();</span><br><span class="line">		mediaPlayer = null;</span><br><span class="line">		<span class="built_in">return</span> <span class="literal">false</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="密码格式是否正确"><a href="#密码格式是否正确" class="headerlink" title="密码格式是否正确"></a>密码格式是否正确</h2><ol>
+<li>8到10位并且包含字母和数字</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">boolean isTrue = Pattern.compile(<span class="string">"^(?=.*[0-9])(?=.*[a-zA-Z]).&#123;8,10&#125;$"</span>).matcher(pass).matches();</span><br></pre></td></tr></table></figure>
+<ol>
+<li>8到10位数字</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">boolean isTrue = Pattern.compile(<span class="string">"^(?=.*[0-9]).&#123;8,10&#125;$"</span>).matcher(pass).matches();</span><br></pre></td></tr></table></figure>
+<h2 id="小数处理"><a href="#小数处理" class="headerlink" title="小数处理"></a>小数处理</h2><h3 id="计算百分比"><a href="#计算百分比" class="headerlink" title="计算百分比"></a>计算百分比</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 计算百分比</span><br><span class="line"> * @param num 当前数</span><br><span class="line"> * @param total 总和</span><br><span class="line"> * @param scale 精确几位小数</span><br><span class="line"> * @<span class="built_in">return</span></span><br><span class="line"> */</span><br><span class="line">public static String percent(double num, double total, int scale) &#123;</span><br><span class="line">	DecimalFormat df = (DecimalFormat) NumberFormat.getInstance();</span><br><span class="line">	// 可以设置精确几位小数</span><br><span class="line">    df.setMaximumFractionDigits(scale);</span><br><span class="line">    // 模式 例如四舍五入</span><br><span class="line">    df.setRoundingMode(RoundingMode.HALF_UP);</span><br><span class="line">    double accuracy_num = num / total * <span class="number">100</span>; </span><br><span class="line">    <span class="built_in">return</span> df.format(accuracy_num);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="按pattern格式化小数"><a href="#按pattern格式化小数" class="headerlink" title="按pattern格式化小数"></a>按pattern格式化小数</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 按pattern格式化小数</span><br><span class="line"> * @param value 小数</span><br><span class="line"> * @param pattern 格式化类型</span><br><span class="line"> * @<span class="built_in">return</span></span><br><span class="line"> */</span><br><span class="line">public static String formatDecimal(double value, String pattern) &#123;</span><br><span class="line">	DecimalFormat df = (DecimalFormat) NumberFormat.getInstance();</span><br><span class="line">	// 数值类型</span><br><span class="line">	df.applyPattern(pattern);</span><br><span class="line">	// 模式 例如四舍五入</span><br><span class="line">	df.setRoundingMode(RoundingMode.HALF_UP);</span><br><span class="line">	<span class="built_in">return</span> df.format(value);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 通过下面调用</span><br><span class="line">formatDecimal(value, <span class="string">"0.00"</span>);</span><br></pre></td></tr></table></figure>
+<h2 id="程序是否在前台运行"><a href="#程序是否在前台运行" class="headerlink" title="程序是否在前台运行"></a>程序是否在前台运行</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">public boolean isAppOnForeground(Context context) &#123;</span><br><span class="line">	// Returns a list of application processes that are running on the device</span><br><span class="line">	ActivityManager activityManager = (ActivityManager) context</span><br><span class="line">			.getApplicationContext().getSystemService(</span><br><span class="line">					Context.ACTIVITY_SERVICE);</span><br><span class="line">	String packageName = context.getApplicationContext().getPackageName();</span><br><span class="line">	List&lt;RunningAppProcessInfo&gt; appProcesses = activityManager</span><br><span class="line">			.getRunningAppProcesses();</span><br><span class="line">	<span class="keyword">if</span> (appProcesses == null) &#123;</span><br><span class="line">		<span class="built_in">return</span> <span class="literal">false</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span> (RunningAppProcessInfo appProcess : appProcesses) &#123;</span><br><span class="line">		// The name of the process that this object is associated with.</span><br><span class="line">		<span class="keyword">if</span> (appProcess.processName.equals(packageName)</span><br><span class="line">				&amp;&amp; appProcess.importance == RunningAppProcessInfo.IMPORTANCE_FOREGROUND) &#123;</span><br><span class="line">			<span class="built_in">return</span> <span class="literal">true</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="关闭软键盘"><a href="#关闭软键盘" class="headerlink" title="关闭软键盘"></a>关闭软键盘</h2><h3 id="软键盘-一"><a href="#软键盘-一" class="headerlink" title="软键盘(一)"></a>软键盘(一)</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 切换输入法的显示和隐藏状态，这里做了判断，所以默认情况下只能够隐藏键盘</span><br><span class="line"> * </span><br><span class="line"> * 这个是让输入法状态发生逆转，如果当前未显示则显示出来。如果显示出来，则隐藏。</span><br><span class="line"> */</span><br><span class="line">public static void <span class="function"><span class="title">hideSoftKeyboard</span></span>() &#123;</span><br><span class="line">	InputMethodManager mInputMethodManager = (InputMethodManager) FrameworkController.getInstance()</span><br><span class="line">			.getSystemService(Context.INPUT_METHOD_SERVICE);</span><br><span class="line">	<span class="keyword">if</span> (mInputMethodManager.isActive()) &#123;</span><br><span class="line">		mInputMethodManager.toggleSoftInput(InputMethodManager.SHOW_IMPLICIT, InputMethodManager.HIDE_NOT_ALWAYS);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="软键盘-二"><a href="#软键盘-二" class="headerlink" title="软键盘(二)"></a>软键盘(二)</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">// 隐藏android键盘</span><br><span class="line">/**</span><br><span class="line"> * imm.hideSoftInputFromInputMethod(getActivity().getCurrentFocus().getWindowToken(), <span class="number">0</span>);</span><br><span class="line"> * 这个经本人在android4.<span class="number">2</span>机子上测试无效。</span><br><span class="line"> * @param view   为EditText（passwdEdit）</span><br><span class="line"> */</span><br><span class="line">@Deprecated</span><br><span class="line">public static void hideSoftKeyboard2(View view) &#123;</span><br><span class="line">	InputMethodManager mInputMethodManager = (InputMethodManager) FrameworkController.getInstance()</span><br><span class="line">			.getSystemService(Context.INPUT_METHOD_SERVICE);</span><br><span class="line">	<span class="keyword">if</span> (null != view) &#123;</span><br><span class="line">		mInputMethodManager.hideSoftInputFromInputMethod(view.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);			</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="软键盘-三"><a href="#软键盘-三" class="headerlink" title="软键盘(三)"></a>软键盘(三)</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 影藏软键盘</span><br><span class="line"> * mInputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), <span class="number">0</span>);</span><br><span class="line"> * </span><br><span class="line"> * 经过测试，这是唯一有效的方法！</span><br><span class="line"> * @param view   编辑的EditText</span><br><span class="line"> */</span><br><span class="line">public static void hideSoftKeyboard3(View view) &#123;</span><br><span class="line">	InputMethodManager mInputMethodManager = (InputMethodManager) FrameworkController.getInstance()</span><br><span class="line">			.getSystemService(Context.INPUT_METHOD_SERVICE);</span><br><span class="line">	<span class="keyword">if</span> (null != view) &#123;</span><br><span class="line">		mInputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), <span class="number">0</span>);			</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="改变透明图"><a href="#改变透明图" class="headerlink" title="改变透明图"></a>改变透明图</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 设置添加屏幕的背景透明度 </span><br><span class="line"> * @param activity 当前Activity</span><br><span class="line"> * @param <span class="built_in">bg</span>Alpha 透明度值<span class="number">0.0</span>-<span class="number">1.0</span></span><br><span class="line"> */</span><br><span class="line">public static void backgroundAlpha(Activity activity, <span class="built_in">float</span> <span class="built_in">bg</span>Alpha) &#123;  </span><br><span class="line">    WindowManager.LayoutParams lp = activity.getWindow().getAttributes();  </span><br><span class="line">    lp.alpha = <span class="built_in">bg</span>Alpha; //<span class="number">0.0</span>-<span class="number">1.0</span>  </span><br><span class="line">    activity.getWindow().setAttributes(lp);  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Android/" rel="tag">#Android</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/03/09/Java-enum的使用/" rel="next" title="Java enum的使用">
+                <i class="fa fa-chevron-left"></i> Java enum的使用
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/03/11/面试前记录/" rel="prev" title="面试前记录">
+                面试前记录 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  <p>热评文章</p>
+  <div class="ds-top-threads" data-range="weekly" data-num-items="4"></div>
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/03/10/Android弹药库/"
+           data-title="Android弹药库" data-url="http://xiaoqianchang.github.io/2016/03/10/Android弹药库/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.jpg"
+               alt="xiaoqianchang" />
+          <p class="site-author-name" itemprop="name">xiaoqianchang</p>
+          <p class="site-description motion-element" itemprop="description">学习总结 思考感悟 知识管理</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+          
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/xiaoqianchang" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> github
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/2470252470" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> weibo
+                  
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+            <p class="site-author-name">友情推荐</p>
+            
+              <span class="links-of-author-item">
+                <a href="http://daimajia.com/" target="_blank">代码家</a>
+              </span>
+            
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#设备信息的获取"><span class="nav-number">1.</span> <span class="nav-text">设备信息的获取</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#手机的型号"><span class="nav-number">1.1.</span> <span class="nav-text">手机的型号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#手机的OS版本号"><span class="nav-number">1.2.</span> <span class="nav-text">手机的OS版本号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设备的DeviceId"><span class="nav-number">1.3.</span> <span class="nav-text">设备的DeviceId</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#APP信息的获取"><span class="nav-number">2.</span> <span class="nav-text">APP信息的获取</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#获取PackageInfo"><span class="nav-number">2.1.</span> <span class="nav-text">获取PackageInfo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取版本号"><span class="nav-number">2.2.</span> <span class="nav-text">获取版本号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取版本信息"><span class="nav-number">2.3.</span> <span class="nav-text">获取版本信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#检查apk文件是否为一个完整的apk文件"><span class="nav-number">2.4.</span> <span class="nav-text">检查apk文件是否为一个完整的apk文件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储操作"><span class="nav-number">3.</span> <span class="nav-text">存储操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#外置存储-sdcard"><span class="nav-number">3.1.</span> <span class="nav-text">外置存储(sdcard)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#检查sdcard是否存在"><span class="nav-number">3.1.1.</span> <span class="nav-text">检查sdcard是否存在</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#得到外置存储的root的绝对路径"><span class="nav-number">3.1.2.</span> <span class="nav-text">得到外置存储的root的绝对路径</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#创建sdcard的文件夹"><span class="nav-number">3.1.3.</span> <span class="nav-text">创建sdcard的文件夹</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内部存储"><span class="nav-number">3.2.</span> <span class="nav-text">内部存储</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MD5加密"><span class="nav-number">4.</span> <span class="nav-text">MD5加密</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#方法一"><span class="nav-number">4.1.</span> <span class="nav-text">方法一</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法二"><span class="nav-number">4.2.</span> <span class="nav-text">方法二</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法三"><span class="nav-number">4.3.</span> <span class="nav-text">方法三</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#判断给定字符串是否空白串"><span class="nav-number">5.</span> <span class="nav-text">判断给定字符串是否空白串</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对指定字符串隐藏"><span class="nav-number">6.</span> <span class="nav-text">对指定字符串隐藏</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#对字符串中间部分隐藏"><span class="nav-number">6.1.</span> <span class="nav-text">对字符串中间部分隐藏</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对字符串两边部分隐藏"><span class="nav-number">6.2.</span> <span class="nav-text">对字符串两边部分隐藏</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对-properties文件的加载解析"><span class="nav-number">7.</span> <span class="nav-text">对.properties文件的加载解析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#得到所有进程Task最上面的Activity"><span class="nav-number">8.</span> <span class="nav-text">得到所有进程Task最上面的Activity</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#获取Html相关内容"><span class="nav-number">9.</span> <span class="nav-text">获取Html相关内容</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#获取Html的title"><span class="nav-number">9.1.</span> <span class="nav-text">获取Html的title</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取Html的所欲IMG"><span class="nav-number">9.2.</span> <span class="nav-text">获取Html的所欲IMG</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取Html的所欲meta"><span class="nav-number">9.3.</span> <span class="nav-text">获取Html的所欲meta</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#图片处理框架用法"><span class="nav-number">10.</span> <span class="nav-text">图片处理框架用法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ImageLoader-一"><span class="nav-number">10.1.</span> <span class="nav-text">ImageLoader(一)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ImageLoader-二"><span class="nav-number">10.2.</span> <span class="nav-text">ImageLoader(二)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#下载网络图片"><span class="nav-number">11.</span> <span class="nav-text">下载网络图片</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#手机号码限制"><span class="nav-number">12.</span> <span class="nav-text">手机号码限制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#蓝牙Bluetooth"><span class="nav-number">13.</span> <span class="nav-text">蓝牙Bluetooth</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#获取BluetoothAdapter"><span class="nav-number">13.1.</span> <span class="nav-text">获取BluetoothAdapter</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#当前-Android-设备是否支持-Bluetooth"><span class="nav-number">13.2.</span> <span class="nav-text">当前 Android 设备是否支持 Bluetooth</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#当前-Android-设备的-bluetooth-是否已经开启"><span class="nav-number">13.3.</span> <span class="nav-text">当前 Android 设备的 bluetooth 是否已经开启</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#强制打开"><span class="nav-number">13.4.</span> <span class="nav-text">强制打开</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#调用系统弹出框提示用户打开"><span class="nav-number">13.5.</span> <span class="nav-text">调用系统弹出框提示用户打开</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#强制关闭"><span class="nav-number">13.6.</span> <span class="nav-text">强制关闭</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#蓝牙是否打开"><span class="nav-number">13.7.</span> <span class="nav-text">蓝牙是否打开</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取以配对的蓝牙设备"><span class="nav-number">13.8.</span> <span class="nav-text">获取以配对的蓝牙设备</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#蓝牙广播接收器"><span class="nav-number">13.9.</span> <span class="nav-text">蓝牙广播接收器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#音视频"><span class="nav-number">14.</span> <span class="nav-text">音视频</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#声音处理"><span class="nav-number">14.1.</span> <span class="nav-text">声音处理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#播放系统-ogg文件"><span class="nav-number">14.1.1.</span> <span class="nav-text">播放系统.ogg文件</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#密码格式是否正确"><span class="nav-number">15.</span> <span class="nav-text">密码格式是否正确</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#小数处理"><span class="nav-number">16.</span> <span class="nav-text">小数处理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#计算百分比"><span class="nav-number">16.1.</span> <span class="nav-text">计算百分比</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#按pattern格式化小数"><span class="nav-number">16.2.</span> <span class="nav-text">按pattern格式化小数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#程序是否在前台运行"><span class="nav-number">17.</span> <span class="nav-text">程序是否在前台运行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关闭软键盘"><span class="nav-number">18.</span> <span class="nav-text">关闭软键盘</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#软键盘-一"><span class="nav-number">18.1.</span> <span class="nav-text">软键盘(一)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#软键盘-二"><span class="nav-number">18.2.</span> <span class="nav-text">软键盘(二)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#软键盘-三"><span class="nav-number">18.3.</span> <span class="nav-text">软键盘(三)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#改变透明图"><span class="nav-number">19.</span> <span class="nav-text">改变透明图</span></a></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">xiaoqianchang</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<div>
+  <span id="busuanzi_container_site_pv">
+    本站总访问量<span id="busuanzi_value_site_pv"></span>次
+  </span>
+
+  <span id="busuanzi_container_site_uv">
+    本站访客数<span id="busuanzi_value_site_uv"></span>人次
+  </span>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  
+
+
+  
+
+
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
+
+
+
+  
+  
+
+  
+  
+<script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = NexT.utils.escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    NexT.motion.middleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+
+      if (CONFIG.sidebar.display === 'post' || CONFIG.sidebar.display === 'always') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          NexT.utils.displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"xiaoqianchang-notes"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("BUgk1wImB7GSjzzumtMuKfOs-gzGzoHsz", "LmO0kbquQbHEAics2yAuozJH");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+
+</body>
+</html>

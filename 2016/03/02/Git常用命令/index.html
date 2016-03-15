@@ -66,7 +66,7 @@
 <meta property="og:site_name" content="xiaoqianchang">
 <meta property="og:description" content="Git的常用命名集合，包括创建分支、合并分支、删除分支、tag的操作、reset的操作、撤销、解决commit冲突和删除分支上的文件及文件夹。">
 <meta property="og:image" content="http://7xrcic.com1.z0.glb.clouddn.com/e062651b-2333-46d5-ab87-b31296b1017c.jpg">
-<meta property="og:updated_time" content="2016-03-09T09:55:10.031Z">
+<meta property="og:updated_time" content="2016-03-10T09:56:40.845Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git常用命令">
 <meta name="twitter:description" content="Git的常用命名集合，包括创建分支、合并分支、删除分支、tag的操作、reset的操作、撤销、解决commit冲突和删除分支上的文件及文件夹。">
@@ -478,6 +478,7 @@ rm &apos;.gitignore&apos;
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git reset --hard HEAD~<span class="number">2</span></span><br><span class="line">git pull</span><br><span class="line">git fetch ssh://xxxx refs/changes/<span class="number">46</span>/<span class="number">28146</span>/<span class="number">1</span> &amp;&amp; git cherry-pick FETCH_HEAD</span><br><span class="line">git push gerrit:xxxxxx HEAD:refs/<span class="keyword">for</span>/xxxxxx</span><br></pre></td></tr></table></figure>
 <p>其中git reset –hard HEAD~2表示本地代码后退两级，如果有问题可以多后退几次<br>git pull表示拉最新代码<br>git fetch 表示获取之前没merge成功的改动到本地，后面跟的具体地址为gerrit上该change review页面选择cherry-pick、ssh后的地址<br>git push 跟平时push一样</p>
 <p>Enjoy It!</p>
+<h2 id="学习资料"><a href="#学习资料" class="headerlink" title="学习资料"></a>学习资料</h2><p><a href="https://try.github.io" target="_blank" rel="external">Try Github在线学习Git版本控制</a></p>
 
       
     </div>
@@ -580,7 +581,7 @@ rm &apos;.gitignore&apos;
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">6</span>
+              <span class="site-state-item-count">8</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -588,7 +589,7 @@ rm &apos;.gitignore&apos;
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -597,7 +598,7 @@ rm &apos;.gitignore&apos;
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -662,7 +663,7 @@ rm &apos;.gitignore&apos;
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#在Git下创建一个空分支"><span class="nav-number">1.</span> <span class="nav-text">在Git下创建一个空分支</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#怎样安全的进行这项操作？"><span class="nav-number">1.1.</span> <span class="nav-text">怎样安全的进行这项操作？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开工"><span class="nav-number">1.2.</span> <span class="nav-text">开工</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Git创建与合并分支"><span class="nav-number">2.</span> <span class="nav-text">Git创建与合并分支</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Git分支的创建"><span class="nav-number">2.1.</span> <span class="nav-text">Git分支的创建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Git分支的合并与提交"><span class="nav-number">2.2.</span> <span class="nav-text">Git分支的合并与提交</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除分支"><span class="nav-number">2.3.</span> <span class="nav-text">删除分支</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#本地分支与远程分支"><span class="nav-number">2.4.</span> <span class="nav-text">本地分支与远程分支</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Git的tag操作"><span class="nav-number">3.</span> <span class="nav-text">Git的tag操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Git的reset操作"><span class="nav-number">4.</span> <span class="nav-text">Git的reset操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Git删除分支和删除文件夹"><span class="nav-number">5.</span> <span class="nav-text">Git删除分支和删除文件夹</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#删除分支-1"><span class="nav-number">5.1.</span> <span class="nav-text">删除分支</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除文件夹"><span class="nav-number">5.2.</span> <span class="nav-text">删除文件夹</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Git的撤销与解决冲突"><span class="nav-number">6.</span> <span class="nav-text">Git的撤销与解决冲突</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Git的撤销"><span class="nav-number">6.1.</span> <span class="nav-text">Git的撤销</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Git多用户提交冲突一"><span class="nav-number">6.2.</span> <span class="nav-text">Git多用户提交冲突一</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Git多用户提交冲突二"><span class="nav-number">6.3.</span> <span class="nav-text">Git多用户提交冲突二</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#在Git下创建一个空分支"><span class="nav-number">1.</span> <span class="nav-text">在Git下创建一个空分支</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#怎样安全的进行这项操作？"><span class="nav-number">1.1.</span> <span class="nav-text">怎样安全的进行这项操作？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开工"><span class="nav-number">1.2.</span> <span class="nav-text">开工</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Git创建与合并分支"><span class="nav-number">2.</span> <span class="nav-text">Git创建与合并分支</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Git分支的创建"><span class="nav-number">2.1.</span> <span class="nav-text">Git分支的创建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Git分支的合并与提交"><span class="nav-number">2.2.</span> <span class="nav-text">Git分支的合并与提交</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除分支"><span class="nav-number">2.3.</span> <span class="nav-text">删除分支</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#本地分支与远程分支"><span class="nav-number">2.4.</span> <span class="nav-text">本地分支与远程分支</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Git的tag操作"><span class="nav-number">3.</span> <span class="nav-text">Git的tag操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Git的reset操作"><span class="nav-number">4.</span> <span class="nav-text">Git的reset操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Git删除分支和删除文件夹"><span class="nav-number">5.</span> <span class="nav-text">Git删除分支和删除文件夹</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#删除分支-1"><span class="nav-number">5.1.</span> <span class="nav-text">删除分支</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除文件夹"><span class="nav-number">5.2.</span> <span class="nav-text">删除文件夹</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Git的撤销与解决冲突"><span class="nav-number">6.</span> <span class="nav-text">Git的撤销与解决冲突</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Git的撤销"><span class="nav-number">6.1.</span> <span class="nav-text">Git的撤销</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Git多用户提交冲突一"><span class="nav-number">6.2.</span> <span class="nav-text">Git多用户提交冲突一</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Git多用户提交冲突二"><span class="nav-number">6.3.</span> <span class="nav-text">Git多用户提交冲突二</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#学习资料"><span class="nav-number">7.</span> <span class="nav-text">学习资料</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
