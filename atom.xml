@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xiaoqianchang.github.io/"/>
-  <updated>2016-03-11T06:27:08.485Z</updated>
+  <updated>2016-03-15T09:24:02.298Z</updated>
   <id>http://xiaoqianchang.github.io/</id>
   
   <author>
@@ -16,28 +16,27 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>面试前记录</title>
-    <link href="http://xiaoqianchang.github.io/2016/03/11/%E9%9D%A2%E8%AF%95%E5%89%8D%E8%AE%B0%E5%BD%95/"/>
-    <id>http://xiaoqianchang.github.io/2016/03/11/面试前记录/</id>
-    <published>2016-03-11T06:18:50.000Z</published>
-    <updated>2016-03-11T06:27:08.485Z</updated>
+    <title>Java弹药库</title>
+    <link href="http://xiaoqianchang.github.io/2016/03/15/Java%E5%BC%B9%E8%8D%AF%E5%BA%93/"/>
+    <id>http://xiaoqianchang.github.io/2016/03/15/Java弹药库/</id>
+    <published>2016-03-15T09:17:51.000Z</published>
+    <updated>2016-03-15T09:24:02.298Z</updated>
     
-    <content type="html">&lt;p&gt;&lt;strong&gt;摘要：&lt;/strong&gt;面试前的一些准备工作。&lt;/p&gt;
+    <content type="html">&lt;p&gt;&lt;strong&gt;摘要：&lt;/strong&gt;继上一篇Android弹药库后对Java中的知识积累在此，这里会持续更新。&lt;/p&gt;
 &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-</content>
+&lt;p&gt;好，开工啦！&lt;/p&gt;
+&lt;h2 id=&quot;获取系统环境变量的值&quot;&gt;&lt;a href=&quot;#获取系统环境变量的值&quot; class=&quot;headerlink&quot; title=&quot;获取系统环境变量的值&quot;&gt;&lt;/a&gt;获取系统环境变量的值&lt;/h2&gt;</content>
     
     <summary type="html">
     
-      &lt;p&gt;&lt;strong&gt;摘要：&lt;/strong&gt;面试前的一些准备工作。&lt;/p&gt;
+      &lt;p&gt;&lt;strong&gt;摘要：&lt;/strong&gt;继上一篇Android弹药库后对Java中的知识积累在此，这里会持续更新。&lt;/p&gt;
     
     </summary>
     
-      <category term="Life" scheme="http://xiaoqianchang.github.io/categories/Life/"/>
+      <category term="Java" scheme="http://xiaoqianchang.github.io/categories/Java/"/>
     
     
-      <category term="Android" scheme="http://xiaoqianchang.github.io/tags/Android/"/>
-    
-      <category term="Life" scheme="http://xiaoqianchang.github.io/tags/Life/"/>
+      <category term="Java" scheme="http://xiaoqianchang.github.io/tags/Java/"/>
     
   </entry>
   
