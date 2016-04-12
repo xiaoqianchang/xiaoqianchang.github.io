@@ -66,7 +66,7 @@
 <meta property="og:site_name" content="xiaoqianchang">
 <meta property="og:description" content="Git的常用命名集合，包括创建分支、合并分支、删除分支、tag的操作、reset的操作、撤销、解决commit冲突和删除分支上的文件及文件夹。">
 <meta property="og:image" content="http://7xrcic.com1.z0.glb.clouddn.com/e062651b-2333-46d5-ab87-b31296b1017c.jpg">
-<meta property="og:updated_time" content="2016-03-10T09:56:40.845Z">
+<meta property="og:updated_time" content="2016-04-12T03:25:08.208Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git常用命令">
 <meta name="twitter:description" content="Git的常用命名集合，包括创建分支、合并分支、删除分支、tag的操作、reset的操作、撤销、解决commit冲突和删除分支上的文件及文件夹。">
@@ -429,6 +429,8 @@ rm &apos;.gitignore&apos;
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin -tags // 这样其他人也能看到标签了</span><br></pre></td></tr></table></figure>
 <h2 id="Git的reset操作"><a href="#Git的reset操作" class="headerlink" title="Git的reset操作"></a>Git的reset操作</h2><p>实际开发过程中，经常会遇到一些莫名其妙的问题，例如，明明跟服务器代码同步的，但是却提示有代码需要提交。诸如此类问题，就可以使用reset操作了。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset --hard</span><br></pre></td></tr></table></figure>
+<p>git回到上一版本命令：<br><code>git reset</code>是指将当前head的内容重置，不会留log信息<br><code>git reset HEAD filename</code>  从暂存区中移除文件<br><code>git reset --hard HEAD~3</code>  会将最新的3次提交全部重置，就像没有提交过一样</p>
+<p>根据<code>--soft</code> <code>--mixed</code> <code>--hard</code>，会对working tree和index和HEAD进行重置：<br><code>git reset --mixed</code>：此为默认方式，不带任何参数的git reset，即时这种方式，它回退到某个版本，只保留源码，回退commit和index信息<br><code>git reset --soft</code>：回退到某个版本，只回退了commit的信息，不会恢复到index file一级。如果还要提交，直接commit即可<br><code>git reset --hard</code>：彻底回退到某个版本，本地的源码也会变为上一个版本的内容<br>例如：<br>我要彻底返回在上一次提交以前的版本。<code>git reset --hrad HEAD~1</code><br>将本地的状态回退到和远程的一样。<code>git reset –hard origin/master</code><br>回退到上一次提交的状态，按照某一次的commit完全反向的进行一次commit。<code>git revert HEAD</code></p>
 <p>另外如果要舍弃本地新的文件，可以使用下边的命令：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clean -df</span><br></pre></td></tr></table></figure>
 <h2 id="Git删除分支和删除文件夹"><a href="#Git删除分支和删除文件夹" class="headerlink" title="Git删除分支和删除文件夹"></a>Git删除分支和删除文件夹</h2><h3 id="删除分支-1"><a href="#删除分支-1" class="headerlink" title="删除分支"></a>删除分支</h3><ul>
