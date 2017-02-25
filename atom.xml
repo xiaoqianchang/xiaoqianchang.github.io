@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xiaoqianchang.github.io/"/>
-  <updated>2016-04-01T02:38:26.212Z</updated>
+  <updated>2017-02-25T12:31:36.332Z</updated>
   <id>http://xiaoqianchang.github.io/</id>
   
   <author>
@@ -14,6 +14,22 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ReactNative-init</title>
+    <link href="http://xiaoqianchang.github.io/2017/02/25/ReactNative-init/"/>
+    <id>http://xiaoqianchang.github.io/2017/02/25/ReactNative-init/</id>
+    <published>2017-02-25T12:31:36.000Z</published>
+    <updated>2017-02-25T12:31:36.332Z</updated>
+    
+    <content type="html"></content>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>反射基本用法</title>
@@ -618,7 +634,7 @@ rm &amp;apos;.gitignore&amp;apos;
     <link href="http://xiaoqianchang.github.io/2016/03/02/Markdown-tools/"/>
     <id>http://xiaoqianchang.github.io/2016/03/02/Markdown-tools/</id>
     <published>2016-03-02T05:30:10.000Z</published>
-    <updated>2016-03-28T09:01:11.211Z</updated>
+    <updated>2017-02-25T13:24:44.000Z</updated>
     
     <content type="html">&lt;p&gt;作为一个开源人，如果你不会使用Markdown语法，那你就OUT了！Markdown 是 2004 年由 John Gruberis 设计和开发的纯文本格式的语法，是一种可以使用普通文本编辑器编写的标记语言，通过简单的标记语法，它可以使普通文本内容具有一定的格式。&lt;/p&gt;
 &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
@@ -640,6 +656,7 @@ rm &amp;apos;.gitignore&amp;apos;
 &lt;p&gt;Soar360@live.com&lt;/p&gt;
 &lt;p&gt;授权秘钥:&lt;/p&gt;
 &lt;p&gt;GBPduHjWfJU1mZqcPM3BikjYKF6xKhlKIys3i1MU2eJHqWGImDHzWdD6xhMNLGVpbP2M5SN6bnxn2kSE8qHqNY5&lt;br&gt;QaaRxmO3YSMHxlv2EYpjdwLcPwfeTG7kUdnhKE0vVy4RidP6Y2wZ0q74f47fzsZo45JE2hfQBFi2O9Jldjp1mW8&lt;br&gt;HUpTtLA2a5/sQytXJUQl/QKO0jUQY4pa5CCx20sV1ClOTZtAGngSOJtIOFXK599sBr5aIEFyH0K7H4BoNMiiDMn&lt;br&gt;xt1rD8Vb/ikJdhGMMQr0R4B+L3nWU97eaVPTRKfWGDE8/eAgKzpGwrQQoDh+nzX1xoVQ8NAuH+s4UcSeQ==&lt;/p&gt;
+&lt;h2 id=&quot;参考资料：&quot;&gt;&lt;a href=&quot;#参考资料：&quot; class=&quot;headerlink&quot; title=&quot;参考资料：&quot;&gt;&lt;/a&gt;参考资料：&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;http://m.blog.csdn.net/article/details?id=50685187&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;MarkdownPad 2 安装使用之二三事&lt;/a&gt;&lt;/p&gt;
 </content>
     
     <summary type="html">
