@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xiaoqianchang.github.io/"/>
-  <updated>2017-02-25T12:31:36.332Z</updated>
+  <updated>2017-02-25T14:21:40.416Z</updated>
   <id>http://xiaoqianchang.github.io/</id>
   
   <author>
@@ -16,18 +16,48 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>ReactNative-init</title>
-    <link href="http://xiaoqianchang.github.io/2017/02/25/ReactNative-init/"/>
-    <id>http://xiaoqianchang.github.io/2017/02/25/ReactNative-init/</id>
+    <title>在Windows下搭建React Native Android开发环境</title>
+    <link href="http://xiaoqianchang.github.io/2017/02/25/%E5%9C%A8Windows%E4%B8%8B%E6%90%AD%E5%BB%BAReact%20Native%20Android%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/"/>
+    <id>http://xiaoqianchang.github.io/2017/02/25/在Windows下搭建React Native Android开发环境/</id>
     <published>2017-02-25T12:31:36.000Z</published>
-    <updated>2017-02-25T12:31:36.332Z</updated>
+    <updated>2017-02-25T14:21:40.416Z</updated>
     
-    <content type="html"></content>
+    <content type="html">&lt;h2 id=&quot;安装git-for-windows&quot;&gt;&lt;a href=&quot;#安装git-for-windows&quot; class=&quot;headerlink&quot; title=&quot;安装git for windows&quot;&gt;&lt;/a&gt;安装git for windows&lt;/h2&gt;&lt;p&gt;在&lt;a href=&quot;https://git-for-windows.github.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这里&lt;/a&gt;下载安装，&lt;code&gt;安装过程中注意选择&amp;quot;Run Git from Windows Command Prompt&amp;quot;。&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&quot;安装Python&quot;&gt;&lt;a href=&quot;#安装Python&quot; class=&quot;headerlink&quot; title=&quot;安装Python&quot;&gt;&lt;/a&gt;安装Python&lt;/h2&gt;&lt;p&gt;从&lt;a href=&quot;https://www.python.org/downloads/release/python-2710/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;官网&lt;/a&gt;下载并安装python 2.7.x（3.x版本不行）&lt;/p&gt;
+&lt;h2 id=&quot;安装node-js&quot;&gt;&lt;a href=&quot;#安装node-js&quot; class=&quot;headerlink&quot; title=&quot;安装node.js&quot;&gt;&lt;/a&gt;安装node.js&lt;/h2&gt;&lt;p&gt;从&lt;a href=&quot;https://nodejs.org/en/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;官网&lt;/a&gt;下载node.js的官方4.1版本或更高版本。&lt;/p&gt;
+&lt;p&gt;建议设置npm镜像以加速后面的过程（或使用科学上网工具）。&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;npm config &lt;span class=&quot;built_in&quot;&gt;set&lt;/span&gt; registry https://registry.npm.taobao.org --global&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;npm config &lt;span class=&quot;built_in&quot;&gt;set&lt;/span&gt; disturl https://npm.taobao.org/dist --global&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h2 id=&quot;安装react-native命令行工具&quot;&gt;&lt;a href=&quot;#安装react-native命令行工具&quot; class=&quot;headerlink&quot; title=&quot;安装react-native命令行工具&quot;&gt;&lt;/a&gt;安装react-native命令行工具&lt;/h2&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;npm install -g react-native-cli&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;创建项目&quot;&gt;&lt;a href=&quot;#创建项目&quot; class=&quot;headerlink&quot; title=&quot;创建项目&quot;&gt;&lt;/a&gt;创建项目&lt;/h2&gt;&lt;p&gt;进入你的工作目录，运行&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;react-native init MyProject
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;并耐心等待数（或数十）分钟。&lt;/p&gt;
+&lt;h2 id=&quot;运行packager&quot;&gt;&lt;a href=&quot;#运行packager&quot; class=&quot;headerlink&quot; title=&quot;运行packager&quot;&gt;&lt;/a&gt;运行packager&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;react-native start
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;可以用浏览器访问&lt;a href=&quot;http://localhost:8081/index.android.bundle?platform=android看看是否可以看到打包后的脚本（看到很长的js代码就对了）。第一次访问通常需要十几秒，并且在packager的命令行可以看到形如[====]的进度条。&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://localhost:8081/index.android.bundle?platform=android看看是否可以看到打包后的脚本（看到很长的js代码就对了）。第一次访问通常需要十几秒，并且在packager的命令行可以看到形如[====]的进度条。&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;如果你遇到了&lt;code&gt;ERROR Watcher took too long to load&lt;/code&gt;的报错，请尝试修改&lt;code&gt;node_modules/react-native/packager/react-packager/src/FileWatcher/index.js&lt;/code&gt;，将其中的MAX_WAIT_TIME 从25000改为更大的值（单位是毫秒）&lt;/p&gt;
+&lt;h2 id=&quot;运行模拟器&quot;&gt;&lt;a href=&quot;#运行模拟器&quot; class=&quot;headerlink&quot; title=&quot;运行模拟器&quot;&gt;&lt;/a&gt;运行模拟器&lt;/h2&gt;&lt;p&gt;推荐使用Genymotion。&lt;br&gt;如果有真机，可以不必运行模拟器，要配置好驱动，使得adb devices可以看到对应的设备。&lt;/p&gt;
+&lt;h2 id=&quot;安卓运行&quot;&gt;&lt;a href=&quot;#安卓运行&quot; class=&quot;headerlink&quot; title=&quot;安卓运行&quot;&gt;&lt;/a&gt;安卓运行&lt;/h2&gt;&lt;p&gt;&lt;code&gt;保持packager开启&lt;/code&gt;，另外打开一个命令行窗口，然后在工程目录下运行&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;react-native run-android
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;首次运行需要等待数分钟并从网上下载gradle依赖。（这个过程屏幕上可能出现很多小数点，表示下载进度。这个时间可能耗时很久，也可能会不停报错链接超时、连接中断等等——取决于你的网络状况和墙的不特定阻断。总之要顺利下载，请使用稳定有效的科学上网工具。）&lt;/p&gt;
+&lt;p&gt;运行完毕后可以在模拟器或真机上看到应用自动启动了。&lt;/p&gt;
+&lt;p&gt;如果apk安装运行出现报错，&lt;code&gt;请检查上文中安装SDK的环节里所有依赖是否都已装全，platform-tools是否已经设到了PATH环境变量中，运行adb devices能否看到设备&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;至此，&lt;code&gt;应该能看到APP红屏报错，这是正常的，我们还需要让app能够正确访问pc端的packager服务&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;摇晃设备或按Menu键（Bluestacks模拟器按键盘上的菜单键，通常在右Ctrl的左边 或者左Windows键旁边），可以打开调试菜单，点击Dev Settings，选Debug server host for device，输入你的&lt;code&gt;正在运行packager的那台电脑的局域网IP加:8081&lt;/code&gt;（同时要保证手机和电脑在同一网段，且没有防火墙阻拦），再按back键返回，再按Menu键，在调试菜单中选择Reload JS，就应该可以看到运行的结果了。&lt;/p&gt;
+&lt;p&gt;如果真实设备白屏但没有弹出任何报错，可以在安全中心里看看是不是应用的“悬浮窗”的权限被禁止了。&lt;/p&gt;
+&lt;h2 id=&quot;安卓调试&quot;&gt;&lt;a href=&quot;#安卓调试&quot; class=&quot;headerlink&quot; title=&quot;安卓调试&quot;&gt;&lt;/a&gt;安卓调试&lt;/h2&gt;&lt;p&gt;打开Chrome，访问 &lt;a href=&quot;http://localhost:8081/debugger-ui，&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://localhost:8081/debugger-ui，&lt;/a&gt; 应当能看到一个页面。按F12打开开发者菜单。&lt;/p&gt;
+&lt;p&gt;在模拟器或真机菜单中选择Debug JS，即可开始调试。&lt;/p&gt;
+</content>
     
     <summary type="html">
     
+      &lt;h2 id=&quot;安装git-for-windows&quot;&gt;&lt;a href=&quot;#安装git-for-windows&quot; class=&quot;headerlink&quot; title=&quot;安装git for windows&quot;&gt;&lt;/a&gt;安装git for windows&lt;/h2&gt;&lt;p&gt;在&lt;a href=&quot;
+    
     </summary>
     
+      <category term="ReactNative" scheme="http://xiaoqianchang.github.io/categories/ReactNative/"/>
+    
+    
+      <category term="ReactNative" scheme="http://xiaoqianchang.github.io/tags/ReactNative/"/>
+    
+      <category term="环境搭建" scheme="http://xiaoqianchang.github.io/tags/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"/>
     
   </entry>
   
@@ -679,9 +709,29 @@ rm &amp;apos;.gitignore&amp;apos;
     <link href="http://xiaoqianchang.github.io/2016/02/24/Hello-Hexo/"/>
     <id>http://xiaoqianchang.github.io/2016/02/24/Hello-Hexo/</id>
     <published>2016-02-24T10:24:10.000Z</published>
-    <updated>2016-03-09T09:52:54.358Z</updated>
+    <updated>2017-02-25T13:56:24.573Z</updated>
     
     <content type="html">&lt;p&gt;Welcome to &lt;a href=&quot;http://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;http://hexo.io/docs/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&quot;http://hexo.io/docs/troubleshooting.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&quot;https://github.com/hexojs/hexo/issues&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&quot;Hexo-介绍&quot;&gt;&lt;a href=&quot;#Hexo-介绍&quot; class=&quot;headerlink&quot; title=&quot;Hexo 介绍&quot;&gt;&lt;/a&gt;Hexo 介绍&lt;/h2&gt;&lt;p&gt;Hexo 是一个简单地、轻量地、基于Node的一个静态博客框架。通过Hexo我们可以快速创建自己的博客，仅需要几条命令就可以完成。&lt;/p&gt;
+&lt;p&gt;发布时，Hexo可以部署在自己的Node服务器上面，也可以部署github上面。对于个人用户来说，部署在github上好处颇多，不仅可以省去服务器的成本，还可以减少各种系统运维的麻烦事(系统管理、备份、网络)。所以，基于github的个人站点，正在开始流行起来….&lt;/p&gt;
+&lt;p&gt;Hexo的官方网站：&lt;a href=&quot;http://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://hexo.io/&lt;/a&gt; ，也是基于Github构建的网站。&lt;/p&gt;
+&lt;h2 id=&quot;Hexo安装&quot;&gt;&lt;a href=&quot;#Hexo安装&quot; class=&quot;headerlink&quot; title=&quot;Hexo安装&quot;&gt;&lt;/a&gt;Hexo安装&lt;/h2&gt;&lt;p&gt;系统环境：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;win7 64bit&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;node v0.10.5&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;npm 1.2.19&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Hexo安装，要用全局安装，加-g参数。&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;c:\Users\ChangXiao&amp;gt;npm install -g hexo&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;查看hexo的版本&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;c:\Users\ChangXiao&amp;gt;hexo version&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;安装好后，我们就可以使用Hexo创建项目了。&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;c:\Users\ChangXiao&amp;gt;hexo init nodejs-hexo&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;进入目录&lt;code&gt;cd nodejs-hexo&lt;/code&gt;，并启动Hexo服务器&lt;code&gt;hexo server&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;这时端口4000被打开了，我们能过浏览器打开地址，&lt;a href=&quot;http://localhost:4000/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://localhost:4000/&lt;/a&gt; 。&lt;/p&gt;
 &lt;h2 id=&quot;Quick-Start&quot;&gt;&lt;a href=&quot;#Quick-Start&quot; class=&quot;headerlink&quot; title=&quot;Quick Start&quot;&gt;&lt;/a&gt;Quick Start&lt;/h2&gt;&lt;h3 id=&quot;Create-a-new-post&quot;&gt;&lt;a href=&quot;#Create-a-new-post&quot; class=&quot;headerlink&quot; title=&quot;Create a new post&quot;&gt;&lt;/a&gt;Create a new post&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo new &lt;span class=&quot;string&quot;&gt;&quot;My New Post&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;More info: &lt;a href=&quot;http://hexo.io/docs/writing.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Writing&lt;/a&gt;&lt;/p&gt;
 &lt;h3 id=&quot;Run-server&quot;&gt;&lt;a href=&quot;#Run-server&quot; class=&quot;headerlink&quot; title=&quot;Run server&quot;&gt;&lt;/a&gt;Run server&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo server&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
@@ -691,11 +741,32 @@ rm &amp;apos;.gitignore&amp;apos;
 &lt;p&gt;More info: &lt;a href=&quot;http://hexo.io/docs/generating.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Generating&lt;/a&gt;&lt;/p&gt;
 &lt;h3 id=&quot;Deploy-to-remote-sites&quot;&gt;&lt;a href=&quot;#Deploy-to-remote-sites&quot; class=&quot;headerlink&quot; title=&quot;Deploy to remote sites&quot;&gt;&lt;/a&gt;Deploy to remote sites&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo deploy&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;More info: &lt;a href=&quot;http://hexo.io/docs/deployment.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Deployment&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;参考资料：&quot;&gt;&lt;a href=&quot;#参考资料：&quot; class=&quot;headerlink&quot; title=&quot;参考资料：&quot;&gt;&lt;/a&gt;参考资料：&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;http://blog.fens.me/hexo-blog-github/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo在github上构建免费的Web应用&lt;/a&gt;&lt;/p&gt;
 </content>
     
     <summary type="html">
     
       &lt;p&gt;Welcome to &lt;a href=&quot;http://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;http://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&quot;http://hexo.io/docs/troubleshooting.html&quot;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&quot;https://github.com/hexojs/hexo/issues&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&quot;Hexo-介绍&quot;&gt;&lt;a href=&quot;#Hexo-介绍&quot; class=&quot;headerlink&quot; title=&quot;Hexo 介绍&quot;&gt;&lt;/a&gt;Hexo 介绍&lt;/h2&gt;&lt;p&gt;Hexo 是一个简单地、轻量地、基于Node的一个静态博客框架。通过Hexo我们可以快速创建自己的博客，仅需要几条命令就可以完成。&lt;/p&gt;
+&lt;p&gt;发布时，Hexo可以部署在自己的Node服务器上面，也可以部署github上面。对于个人用户来说，部署在github上好处颇多，不仅可以省去服务器的成本，还可以减少各种系统运维的麻烦事(系统管理、备份、网络)。所以，基于github的个人站点，正在开始流行起来….&lt;/p&gt;
+&lt;p&gt;Hexo的官方网站：&lt;a href=&quot;http://hexo.io/&quot;&gt;http://hexo.io/&lt;/a&gt; ，也是基于Github构建的网站。&lt;/p&gt;
+&lt;h2 id=&quot;Hexo安装&quot;&gt;&lt;a href=&quot;#Hexo安装&quot; class=&quot;headerlink&quot; title=&quot;Hexo安装&quot;&gt;&lt;/a&gt;Hexo安装&lt;/h2&gt;&lt;p&gt;系统环境：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;win7 64bit&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;node v0.10.5&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;npm 1.2.19&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Hexo安装，要用全局安装，加-g参数。&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;c:\Users\ChangXiao&amp;gt;npm install -g hexo&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;查看hexo的版本&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;c:\Users\ChangXiao&amp;gt;hexo version&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;安装好后，我们就可以使用Hexo创建项目了。&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;c:\Users\ChangXiao&amp;gt;hexo init nodejs-hexo&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;进入目录&lt;code&gt;cd nodejs-hexo&lt;/code&gt;，并启动Hexo服务器&lt;code&gt;hexo server&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;这时端口4000被打开了，我们能过浏览器打开地址，&lt;a href=&quot;http://localhost:4000/&quot;&gt;http://localhost:4000/&lt;/a&gt; 。&lt;/p&gt;
 &lt;h2 id=&quot;Quick-Start&quot;&gt;&lt;a href=&quot;#Quick-Start&quot; class=&quot;headerlink&quot; title=&quot;Quick Start&quot;&gt;&lt;/a&gt;Quick Start&lt;/h2&gt;&lt;h3 id=&quot;Create-a-new-post&quot;&gt;&lt;a href=&quot;#Create-a-new-post&quot; class=&quot;headerlink&quot; title=&quot;Create a new post&quot;&gt;&lt;/a&gt;Create a new post&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo new &lt;span class=&quot;string&quot;&gt;&quot;My New Post&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;More info: &lt;a href=&quot;http://hexo.io/docs/writing.html&quot;&gt;Writing&lt;/a&gt;&lt;/p&gt;
 &lt;h3 id=&quot;Run-server&quot;&gt;&lt;a href=&quot;#Run-server&quot; class=&quot;headerlink&quot; title=&quot;Run server&quot;&gt;&lt;/a&gt;Run server&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo server&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
