@@ -240,15 +240,6 @@
 
     
     
-      
-      
-        
-        
-        
-      
-
-      
-    
 
     
       
@@ -348,31 +339,13 @@
 
       
         
-          
-            <h2 id="安装git-for-windows"><a href="#安装git-for-windows" class="headerlink" title="安装git for windows"></a>安装git for windows</h2><p>在<a href="https://git-for-windows.github.io/" target="_blank" rel="external">这里</a>下载安装，<code>安装过程中注意选择&quot;Run Git from Windows Command Prompt&quot;。</code></p>
-<h2 id="安装Python"><a href="#安装Python" class="headerlink" title="安装Python"></a>安装Python</h2><p>从<a href="https://www.python.org/downloads/release/python-2710/" target="_blank" rel="external">官网</a>下载并安装python 2.7.x（3.x版本不行）</p>
-<h2 id="安装node-js"><a href="#安装node-js" class="headerlink" title="安装node.js"></a>安装node.js</h2><p>从<a href="https://nodejs.org/en/" target="_blank" rel="external">官网</a>下载node.js的官方4.1版本或更高版本。</p>
-<p>建议设置npm镜像以加速后面的过程（或使用科学上网工具）。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm config <span class="built_in">set</span> registry https://registry.npm.taobao.org --global</span><br><span class="line"></span><br><span class="line">npm config <span class="built_in">set</span> disturl https://npm.taobao.org/dist --global</span><br></pre></td></tr></table></figure></p>
-<h2 id="安装react-native命令行工具"><a href="#安装react-native命令行工具" class="headerlink" title="安装react-native命令行工具"></a>安装react-native命令行工具</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g react-native-cli</span><br></pre></td></tr></table></figure>
-<h2 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h2><p>进入你的工作目录，运行</p>
-<pre><code>react-native init MyProject
-</code></pre><p>并耐心等待数（或数十）分钟。</p>
-<h2 id="运行packager"><a href="#运行packager" class="headerlink" title="运行packager"></a>运行packager</h2><pre><code>react-native start
-</code></pre><p>可以用浏览器访问<a href="http://localhost:8081/index.android.bundle?platform=android看看是否可以看到打包后的脚本（看到很长的js代码就对了）。第一次访问通常需要十几秒，并且在packager的命令行可以看到形如[====]的进度条。" target="_blank" rel="external">http://localhost:8081/index.android.bundle?platform=android看看是否可以看到打包后的脚本（看到很长的js代码就对了）。第一次访问通常需要十几秒，并且在packager的命令行可以看到形如[====]的进度条。</a></p>
-<p>如果你遇到了<code>ERROR Watcher took too long to load</code>的报错，请尝试修改<code>node_modules/react-native/packager/react-packager/src/FileWatcher/index.js</code>，将其中的MAX_WAIT_TIME 从25000改为更大的值（单位是毫秒）</p>
-<h2 id="运行模拟器"><a href="#运行模拟器" class="headerlink" title="运行模拟器"></a>运行模拟器</h2><p>推荐使用Genymotion。<br>如果有真机，可以不必运行模拟器，要配置好驱动，使得adb devices可以看到对应的设备。</p>
-<h2 id="安卓运行"><a href="#安卓运行" class="headerlink" title="安卓运行"></a>安卓运行</h2><p><code>保持packager开启</code>，另外打开一个命令行窗口，然后在工程目录下运行</p>
-<pre><code>react-native run-android
-</code></pre><p>首次运行需要等待数分钟并从网上下载gradle依赖。（这个过程屏幕上可能出现很多小数点，表示下载进度。这个时间可能耗时很久，也可能会不停报错链接超时、连接中断等等——取决于你的网络状况和墙的不特定阻断。总之要顺利下载，请使用稳定有效的科学上网工具。）</p>
-<p>运行完毕后可以在模拟器或真机上看到应用自动启动了。</p>
-<p>如果apk安装运行出现报错，<code>请检查上文中安装SDK的环节里所有依赖是否都已装全，platform-tools是否已经设到了PATH环境变量中，运行adb devices能否看到设备</code>。</p>
-<p>至此，<code>应该能看到APP红屏报错，这是正常的，我们还需要让app能够正确访问pc端的packager服务</code>。</p>
-<p>摇晃设备或按Menu键（Bluestacks模拟器按键盘上的菜单键，通常在右Ctrl的左边 或者左Windows键旁边），可以打开调试菜单，点击Dev Settings，选Debug server host for device，输入你的<code>正在运行packager的那台电脑的局域网IP加:8081</code>（同时要保证手机和电脑在同一网段，且没有防火墙阻拦），再按back键返回，再按Menu键，在调试菜单中选择Reload JS，就应该可以看到运行的结果了。</p>
-<p>如果真实设备白屏但没有弹出任何报错，可以在安全中心里看看是不是应用的“悬浮窗”的权限被禁止了。</p>
-<h2 id="安卓调试"><a href="#安卓调试" class="headerlink" title="安卓调试"></a>安卓调试</h2><p>打开Chrome，访问 <a href="http://localhost:8081/debugger-ui，" target="_blank" rel="external">http://localhost:8081/debugger-ui，</a> 应当能看到一个页面。按F12打开开发者菜单。</p>
-<p>在模拟器或真机菜单中选择Debug JS，即可开始调试。</p>
-
-          
+          <h2 id="安装git-for-windows"><a href="#安装git-for-windows" class="headerlink" title="安装git for windows"></a>安装git for windows</h2><p>在<a href="https://git-for-windows.github.io/">这里</a>下载安装，<code>安装过程中注意选择&quot;Run Git from Windows Command Prompt&quot;。</code></p>
+<h2 id="安装Python"><a href="#安装Python" class="headerlink" title="安装Python"></a>安装Python</h2><p>从<a href="https://www.python.org/downloads/release/python-2710/">官网</a>下载并安装python 2.7.x（3.x版本不行）</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/02/25/在Windows下搭建React Native Android开发环境/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
