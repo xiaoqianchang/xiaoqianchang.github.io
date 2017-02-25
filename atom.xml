@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xiaoqianchang.github.io/"/>
-  <updated>2017-02-25T14:25:12.301Z</updated>
+  <updated>2017-02-25T14:26:16.329Z</updated>
   <id>http://xiaoqianchang.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://xiaoqianchang.github.io/2017/02/25/%E5%9C%A8Windows%E4%B8%8B%E6%90%AD%E5%BB%BAReact%20Native%20Android%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/"/>
     <id>http://xiaoqianchang.github.io/2017/02/25/在Windows下搭建React Native Android开发环境/</id>
     <published>2017-02-25T12:31:36.000Z</published>
-    <updated>2017-02-25T14:25:12.301Z</updated>
+    <updated>2017-02-25T14:26:16.329Z</updated>
     
     <content type="html">&lt;h2 id=&quot;安装git-for-windows&quot;&gt;&lt;a href=&quot;#安装git-for-windows&quot; class=&quot;headerlink&quot; title=&quot;安装git for windows&quot;&gt;&lt;/a&gt;安装git for windows&lt;/h2&gt;&lt;p&gt;在&lt;a href=&quot;https://git-for-windows.github.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这里&lt;/a&gt;下载安装，&lt;code&gt;安装过程中注意选择&amp;quot;Run Git from Windows Command Prompt&amp;quot;。&lt;/code&gt;&lt;/p&gt;
 &lt;h2 id=&quot;安装Python&quot;&gt;&lt;a href=&quot;#安装Python&quot; class=&quot;headerlink&quot; title=&quot;安装Python&quot;&gt;&lt;/a&gt;安装Python&lt;/h2&gt;&lt;p&gt;从&lt;a href=&quot;https://www.python.org/downloads/release/python-2710/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;官网&lt;/a&gt;下载并安装python 2.7.x（3.x版本不行）&lt;/p&gt;
@@ -32,7 +32,7 @@
 &lt;pre&gt;&lt;code&gt;react-native init MyProject
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;并耐心等待数（或数十）分钟。&lt;/p&gt;
 &lt;h2 id=&quot;运行packager&quot;&gt;&lt;a href=&quot;#运行packager&quot; class=&quot;headerlink&quot; title=&quot;运行packager&quot;&gt;&lt;/a&gt;运行packager&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;react-native start
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;可以用浏览器访问&lt;a href=&quot;http://localhost:8081/index.android.bundle?platform=android看看是否可以看到打包后的脚本（看到很长的js代码就对了）。第一次访问通常需要十几秒，并且在packager的命令行可以看到形如[====]的进度条。&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://localhost:8081/index.android.bundle?platform=android看看是否可以看到打包后的脚本（看到很长的js代码就对了）。第一次访问通常需要十几秒，并且在packager的命令行可以看到形如[====]的进度条。&lt;/a&gt;&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;可以用浏览器访问&lt;a href=&quot;http://localhost:8081/index.android.bundle?platform=android&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://localhost:8081/index.android.bundle?platform=android&lt;/a&gt; 看看是否可以看到打包后的脚本（看到很长的js代码就对了）。第一次访问通常需要十几秒，并且在packager的命令行可以看到形如[====]的进度条。&lt;/p&gt;
 &lt;p&gt;如果你遇到了&lt;code&gt;ERROR Watcher took too long to load&lt;/code&gt;的报错，请尝试修改&lt;code&gt;node_modules/react-native/packager/react-packager/src/FileWatcher/index.js&lt;/code&gt;，将其中的MAX_WAIT_TIME 从25000改为更大的值（单位是毫秒）&lt;/p&gt;
 &lt;h2 id=&quot;运行模拟器&quot;&gt;&lt;a href=&quot;#运行模拟器&quot; class=&quot;headerlink&quot; title=&quot;运行模拟器&quot;&gt;&lt;/a&gt;运行模拟器&lt;/h2&gt;&lt;p&gt;推荐使用Genymotion。&lt;br&gt;如果有真机，可以不必运行模拟器，要配置好驱动，使得adb devices可以看到对应的设备。&lt;/p&gt;
 &lt;h2 id=&quot;安卓运行&quot;&gt;&lt;a href=&quot;#安卓运行&quot; class=&quot;headerlink&quot; title=&quot;安卓运行&quot;&gt;&lt;/a&gt;安卓运行&lt;/h2&gt;&lt;p&gt;&lt;code&gt;保持packager开启&lt;/code&gt;，另外打开一个命令行窗口，然后在工程目录下运行&lt;/p&gt;

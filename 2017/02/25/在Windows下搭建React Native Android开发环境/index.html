@@ -67,7 +67,7 @@
 <meta property="og:site_name" content="xiaoqianchang">
 <meta property="og:description" content="安装git for windows在这里下载安装，安装过程中注意选择&amp;quot;Run Git from Windows Command Prompt&amp;quot;。
 安装Python从官网下载并安装python 2.7.x（3.x版本不行）">
-<meta property="og:updated_time" content="2017-02-25T14:25:12.301Z">
+<meta property="og:updated_time" content="2017-02-25T14:26:16.329Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="在Windows下搭建React Native Android开发环境">
 <meta name="twitter:description" content="安装git for windows在这里下载安装，安装过程中注意选择&amp;quot;Run Git from Windows Command Prompt&amp;quot;。
@@ -341,7 +341,7 @@
 <pre><code>react-native init MyProject
 </code></pre><p>并耐心等待数（或数十）分钟。</p>
 <h2 id="运行packager"><a href="#运行packager" class="headerlink" title="运行packager"></a>运行packager</h2><pre><code>react-native start
-</code></pre><p>可以用浏览器访问<a href="http://localhost:8081/index.android.bundle?platform=android看看是否可以看到打包后的脚本（看到很长的js代码就对了）。第一次访问通常需要十几秒，并且在packager的命令行可以看到形如[====]的进度条。" target="_blank" rel="external">http://localhost:8081/index.android.bundle?platform=android看看是否可以看到打包后的脚本（看到很长的js代码就对了）。第一次访问通常需要十几秒，并且在packager的命令行可以看到形如[====]的进度条。</a></p>
+</code></pre><p>可以用浏览器访问<a href="http://localhost:8081/index.android.bundle?platform=android" target="_blank" rel="external">http://localhost:8081/index.android.bundle?platform=android</a> 看看是否可以看到打包后的脚本（看到很长的js代码就对了）。第一次访问通常需要十几秒，并且在packager的命令行可以看到形如[====]的进度条。</p>
 <p>如果你遇到了<code>ERROR Watcher took too long to load</code>的报错，请尝试修改<code>node_modules/react-native/packager/react-packager/src/FileWatcher/index.js</code>，将其中的MAX_WAIT_TIME 从25000改为更大的值（单位是毫秒）</p>
 <h2 id="运行模拟器"><a href="#运行模拟器" class="headerlink" title="运行模拟器"></a>运行模拟器</h2><p>推荐使用Genymotion。<br>如果有真机，可以不必运行模拟器，要配置好驱动，使得adb devices可以看到对应的设备。</p>
 <h2 id="安卓运行"><a href="#安卓运行" class="headerlink" title="安卓运行"></a>安卓运行</h2><p><code>保持packager开启</code>，另外打开一个命令行窗口，然后在工程目录下运行</p>
