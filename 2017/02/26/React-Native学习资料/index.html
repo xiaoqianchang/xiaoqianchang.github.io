@@ -73,7 +73,7 @@ React Native进行签名打包成Apk对于项目中不存在react.gradle文件�
 首先命令切换到该react native项目的主目录，然后运行以下的命令，生成assets文件夹
 mkdir -p android/app/src/main/assets
 紧接着运行以下命令，进行生成inde.android.bu">
-<meta property="og:updated_time" content="2017-02-26T13:55:17.450Z">
+<meta property="og:updated_time" content="2017-02-26T13:58:55.101Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="React Native学习资料">
 <meta name="twitter:description" content="本文记录React Native 从环境搭建、签名打包等等一些资料。
@@ -346,6 +346,7 @@ mkdir -p android/app/src/main/assets
 <pre><code>mkdir -p android/app/src/main/assets
 </code></pre><p>紧接着运行以下命令，进行生成inde.android.bundle文件</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">react-native bundle --platform android --dev <span class="literal">false</span> --entry-file index.android.js \</span><br><span class="line">  --bundle-output android/app/src/main/assets/index.android.bundle \</span><br><span class="line">  --assets-dest android/app/src/main/res/</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
 <p>最后运行之前的命令，进行代码和资源文件打包，生成的带有签名的apk还是在上面的目录中。</p>
 <pre><code>cd android &amp;&amp; ./gradlew assembleRelease
 </code></pre><p>注意：这时有可能不成功，报红色的错误<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">* What went wrong:</span><br><span class="line">Execution failed <span class="keyword">for</span> task <span class="string">':app:processReleaseResources'</span>.</span><br><span class="line">&gt; com.android.ide.common.process.ProcessException: org.gradle.process.internal.ExecException: Process <span class="string">'command '</span>D:\software\android\sdk\build-tools\<span class="number">23.0</span>.<span class="number">1</span>\aapt.exe<span class="string">''</span> finished with non-zero <span class="built_in">exit</span> value <span class="number">1</span></span><br></pre></td></tr></table></figure></p>
