@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xiaoqianchang.github.io/"/>
-  <updated>2017-05-02T15:31:03.666Z</updated>
+  <updated>2017-05-02T15:34:27.130Z</updated>
   <id>http://xiaoqianchang.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://xiaoqianchang.github.io/2017/04/29/%E5%A4%9A%E7%BA%BF%E7%A8%8B/"/>
     <id>http://xiaoqianchang.github.io/2017/04/29/多线程/</id>
     <published>2017-04-29T07:54:57.000Z</published>
-    <updated>2017-05-02T15:31:03.666Z</updated>
+    <updated>2017-05-02T15:34:27.130Z</updated>
     
     <content type="html">&lt;h2 id=&quot;学习目标&quot;&gt;&lt;a href=&quot;#学习目标&quot; class=&quot;headerlink&quot; title=&quot;学习目标&quot;&gt;&lt;/a&gt;学习目标&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;理解多线程的概念。&lt;/li&gt;
@@ -142,6 +142,7 @@
 &lt;h2 id=&quot;线程的状态&quot;&gt;&lt;a href=&quot;#线程的状态&quot; class=&quot;headerlink&quot; title=&quot;线程的状态&quot;&gt;&lt;/a&gt;线程的状态&lt;/h2&gt;&lt;p&gt;任务在线程中执行。线程可以是以下五种状态之一:&lt;strong&gt;新建、就绪、运行、阻塞或结束&lt;/strong&gt;(如图29-26所示)。&lt;br&gt;&lt;img src=&quot;http://7xrcic.com1.z0.glb.clouddn.com/image/thread/thread-status.png&quot; alt=&quot;线程的状态&quot;&gt;&lt;/p&gt;
 &lt;p&gt;新创建一个线程时，它就进人新建状态(New)。调用线程的start()方法启动线程后，它进入就绪状态(Ready)。就绪线程是可运行的，但可能还没有开始运行。操作系统就必须为它分配CPU时间。&lt;br&gt;    就绪线程开始运行时，它就进人运行状态(Running) 。如果给定的CPU时间调用完或调用线程的yie工d()方法，处于运行状态的线程可能就进入就绪状态。&lt;br&gt;    有几种原因可能使线程进人阻塞状态(Blocked)(即非活动状态)。可能是它自己调用了join()、sleep()或wait()方法，也可能是其他线程调用了这些方法。它可能是在等待I/O操作的完成。当阻塞行为不起阻塞作用时，阻塞线程可能被重新激活。例如，如果线程处于休眠状态并且休眠时间已满，线程就会被重新激活并进人就绪状态。&lt;br&gt;    最后，如果一个线程执行完它的run()方法，这个线程就被结束(finished)。&lt;br&gt;    isAlive()方法是用来判断线程状态的方法。如果线程处于就绪、阻塞或运行状态，则返回true；如果线程处于新建并且没有启动的状态，或者已经结束，则返回false。&lt;br&gt;    方法interrupt()按下列方式中断一个线程:当线程处于就绪状态或运行状态时，给它设置一个中断标志;当线程处于阻塞状态时，它将被唤醒并进人就绪状态，同时抛出异常java.lang.InterruptedException。&lt;/p&gt;
 &lt;h2 id=&quot;同步集合&quot;&gt;&lt;a href=&quot;#同步集合&quot; class=&quot;headerlink&quot; title=&quot;同步集合&quot;&gt;&lt;/a&gt;同步集合&lt;/h2&gt;&lt;p&gt;Java集合框架中的类不是线程安全的，也就是说，如果它们同时被多个线程访问和更新，它们的内容可能被破坏。可以通过锁定集合或者同步集合保护集合中的数据。&lt;br&gt;  Collection“类提供六个静态方法来将集合转成同步版本，如图29-27所示。使用这些方法创建的集合称为&lt;code&gt;同步包装类&lt;/code&gt;。&lt;br&gt;&lt;img src=&quot;http://7xrcic.com1.z0.glb.clouddn.com/image/thread/thread-collections1.png&quot; alt=&quot;同步集合&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;参考资料：&quot;&gt;&lt;a href=&quot;#参考资料：&quot; class=&quot;headerlink&quot; title=&quot;参考资料：&quot;&gt;&lt;/a&gt;参考资料：&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;http://blog.csdn.net/moudaen/article/details/14519921&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;JAVA线程池原理以及几种线程池类型介绍&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://zhuanlan.zhihu.com/p/22882522&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Java几种线程池的分析和使用&lt;/a&gt;&lt;/p&gt;
 </content>
     
     <summary type="html">
