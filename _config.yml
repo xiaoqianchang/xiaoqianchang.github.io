@@ -42,9 +42,9 @@ render_drafts: false
 post_asset_folder: false
 relative_link: false
 future: true
-highlight:
-  enable: true
-  line_number: true
+highlight: #语法高亮
+  enable: true #是否启用
+  line_number: true #显示行号
   auto_detect: true
   tab_replace:
 
