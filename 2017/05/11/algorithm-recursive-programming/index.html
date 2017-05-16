@@ -1,0 +1,1039 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Java,算法,递归," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="xiaoqianchang" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
+
+
+
+
+
+
+<meta name="description" content="学习目标
+递归的概念及用途。
+递归算法的设计方法。
+递归算法的执行过程。
+递归算法与迭代算法的关系。
+
+引言著名的八皇后问题：在棋盘上放置8个皇后，使其中任意两个都不同行、不同列、不在一条对角线上，如下图所示：
+解决这个问题的方法——递归">
+<meta property="og:type" content="article">
+<meta property="og:title" content="算法递归程序设计">
+<meta property="og:url" content="http://xiaoqianchang.github.io/2017/05/11/algorithm-recursive-programming/index.html">
+<meta property="og:site_name" content="xiaoqianchang">
+<meta property="og:description" content="学习目标
+递归的概念及用途。
+递归算法的设计方法。
+递归算法的执行过程。
+递归算法与迭代算法的关系。
+
+引言著名的八皇后问题：在棋盘上放置8个皇后，使其中任意两个都不同行、不同列、不在一条对角线上，如下图所示：
+解决这个问题的方法——递归">
+<meta property="og:image" content="http://7xrcic.com1.z0.glb.clouddn.com/image/digui/eightqueens1.png">
+<meta property="og:image" content="http://7xrcic.com1.z0.glb.clouddn.com/image/digui/digui2.png">
+<meta property="og:image" content="http://7xrcic.com1.z0.glb.clouddn.com/image/digui/digui3.png">
+<meta property="og:image" content="http://7xrcic.com1.z0.glb.clouddn.com/image/digui/digui4.png">
+<meta property="og:image" content="http://7xrcic.com1.z0.glb.clouddn.com/image/digui/digui5.png">
+<meta property="og:image" content="http://7xrcic.com1.z0.glb.clouddn.com/image/digui/digui6.png">
+<meta property="og:image" content="http://7xrcic.com1.z0.glb.clouddn.com/image/digui/digui7.png">
+<meta property="og:image" content="http://7xrcic.com1.z0.glb.clouddn.com/image/digui/digui8.png">
+<meta property="og:image" content="http://7xrcic.com1.z0.glb.clouddn.com/image/digui/digui9.png">
+<meta property="og:image" content="http://7xrcic.com1.z0.glb.clouddn.com/image/digui/digui10.png">
+<meta property="og:image" content="http://7xrcic.com1.z0.glb.clouddn.com/image/digui/digui11.png">
+<meta property="og:image" content="http://7xrcic.com1.z0.glb.clouddn.com/image/digui/digui12.png">
+<meta property="og:image" content="http://7xrcic.com1.z0.glb.clouddn.com/image/digui/digui13.png">
+<meta property="og:image" content="http://7xrcic.com1.z0.glb.clouddn.com/image/digui/digui14.png">
+<meta property="og:image" content="http://7xrcic.com1.z0.glb.clouddn.com/image/digui/digui15.png">
+<meta property="og:image" content="http://7xrcic.com1.z0.glb.clouddn.com/image/digui/digui16.png">
+<meta property="og:image" content="http://7xrcic.com1.z0.glb.clouddn.com/image/digui/eightqueens1.png">
+<meta property="og:image" content="http://7xrcic.com1.z0.glb.clouddn.com/image/digui/digui17.png">
+<meta property="og:updated_time" content="2017-05-16T04:09:27.832Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="算法递归程序设计">
+<meta name="twitter:description" content="学习目标
+递归的概念及用途。
+递归算法的设计方法。
+递归算法的执行过程。
+递归算法与迭代算法的关系。
+
+引言著名的八皇后问题：在棋盘上放置8个皇后，使其中任意两个都不同行、不同列、不在一条对角线上，如下图所示：
+解决这个问题的方法——递归">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"right","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> 算法递归程序设计 | xiaoqianchang </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?3d10640fccdd16cb0ba427bbac5a07db";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">xiaoqianchang</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu menu-left">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+      
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', '4KRHx7T9426EJKxriKd6','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                算法递归程序设计
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-05-11T11:28:31+08:00" content="2017-05-11">
+              2017-05-11
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/05/11/algorithm-recursive-programming/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/05/11/algorithm-recursive-programming/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2017/05/11/algorithm-recursive-programming/" class="leancloud_visitors" data-flag-title="算法递归程序设计">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span> 
+               <span class="leancloud-visitors-count"></span> 
+              </span>
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="学习目标"><a href="#学习目标" class="headerlink" title="学习目标"></a>学习目标</h2><ul>
+<li>递归的概念及用途。</li>
+<li>递归算法的设计方法。</li>
+<li>递归算法的执行过程。</li>
+<li>递归算法与迭代算法的关系。</li>
+</ul>
+<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>著名的八皇后问题：在棋盘上放置8个皇后，使其中任意两个都不同行、不同列、不在一条对角线上，如下图所示：<br><img src="http://7xrcic.com1.z0.glb.clouddn.com/image/digui/eightqueens1.png" alt="eightqueens"></p>
+<p>解决这个问题的方法——递归</p>
+<a id="more"></a>
+<h2 id="递归的概念"><a href="#递归的概念" class="headerlink" title="递归的概念"></a>递归的概念</h2><blockquote>
+<p>递归算法是一种直接或者间接调用自身函数或者方法的算法。递归算法的实质是把问题分解成规模缩小的同类问题的子问题，然后递归调用方法来表示问题的解。递归算法对解决一大类问题很有效，它可以使算法简洁和易于理解。递归算法，其实说白了，就是程序的自身调用。它表现在一段程序中往往会遇到调用自身的那样一种coding策略，这样我们就可以利用大道至简的思想，把一个大的复杂的问题层层转换为一个小的和原问题相似的问题来求解的这样一种策略。递归往往能给我们带来非常简洁非常直观的代码形势，从而使我们的编码大大简化，然而递归的思维确实很我们的常规思维相逆的，我们通常都是从上而下的思维问题，而递归趋势从下往上的进行思维。这样我们就能看到我们会用很少的语句解决了非常大的问题，所以递归策略的最主要体现就是小的代码量解决了非常复杂的问题。</p>
+</blockquote>
+<h2 id="递归的定义"><a href="#递归的定义" class="headerlink" title="递归的定义"></a>递归的定义</h2><blockquote>
+<p>若一个对象部分地包含它自己，或用它自己给自己定义，则称这个对象是递归的；若一个过程直接地或间接地调用自己，则称这个过程是递归的过程。</p>
+</blockquote>
+<p>直接递归<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">fun_a</span></span>()</span><br><span class="line">&#123;  … </span><br><span class="line"> fun_a()  …</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>间接递归<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">fun_a</span></span>()</span><br><span class="line">&#123;  …  </span><br><span class="line">    fun_b()  </span><br><span class="line">…&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">fun_b</span></span>()</span><br><span class="line">&#123;  …  </span><br><span class="line">    fun_a() </span><br><span class="line">…&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="递归分类"><a href="#递归分类" class="headerlink" title="递归分类"></a>递归分类</h2><ul>
+<li>问题的定义是递归的<br>例如：阶乘函数的定义<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">        <span class="number">1</span>               当n=<span class="number">0</span>时  </span><br><span class="line">n！= </span><br><span class="line">        n*(n-<span class="number">1</span>)！       当n&gt;<span class="number">0</span>时</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">factorial(<span class="number">0</span>) = <span class="number">1</span>;</span><br><span class="line">factorial(n) = n*factorial(n-<span class="number">1</span>);</span><br></pre></td></tr></table></figure>
+<p>代码呈现：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">public int factorial(int n) &#123;</span><br><span class="line">    <span class="keyword">if</span>(n == <span class="number">1</span>)</span><br><span class="line">        <span class="built_in">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">      <span class="built_in">return</span> n * factorial(n - <span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>问题的解法存在自调用<br>例如：折半查找算法<br><img src="http://7xrcic.com1.z0.glb.clouddn.com/image/digui/digui2.png" alt="折半查找算法"></li>
+</ul>
+<p>折半查找递归算法<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">public static int bSearch(int[] a, int x, int low, int high) &#123;</span><br><span class="line">	int mid;</span><br><span class="line">	<span class="keyword">if</span>(low &gt; high) <span class="built_in">return</span> -<span class="number">1</span>; 		            //查找不成功</span><br><span class="line">	mid = (low + high) / <span class="number">2</span>;</span><br><span class="line">	<span class="keyword">if</span>(x == a[mid]) <span class="built_in">return</span> mid; 			    //查找成功</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span>(x &lt; a[mid])</span><br><span class="line">		<span class="built_in">return</span> bSearch(a, x, low, mid - <span class="number">1</span>); 	//在上半区查找</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">		<span class="built_in">return</span> bSearch(a, x, mid + <span class="number">1</span>, high); 	//在下半区查找</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>测试主函数设计如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">	int[] a = &#123;<span class="number">1</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">17</span>, <span class="number">18</span>, <span class="number">31</span>, <span class="number">33</span>&#125;;</span><br><span class="line">	int x = <span class="number">17</span>;</span><br><span class="line">	int bn;</span><br><span class="line">	bn = bSearch(a, x, <span class="number">0</span>, <span class="number">7</span>);</span><br><span class="line">	<span class="keyword">if</span>(bn == -<span class="number">1</span>) </span><br><span class="line">		System.out.println(<span class="string">"x不在数组a中"</span>);</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">		System.out.println(<span class="string">"x在数组a中，下标为"</span> + bn);	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="递归模型"><a href="#递归模型" class="headerlink" title="递归模型"></a>递归模型</h2><blockquote>
+<p>递归模型反映一个递归问题的递归结构。一般地，一个递归模型是由<strong>递归出口</strong>和<strong>递归体</strong>两部分组成，前者确定递归到何时为止，后者确定递归的方式。</p>
+</blockquote>
+<p>递归出口的一般格式为：<br>f(s0)=m0；这里的s0与m0均为常量，有的递归问题可能有几个递归出口。</p>
+<p>递归体的一般格式为：<br>f(s)=g(f(s1), f(s2),……, f(sn),c1, c2,……，cm)<br>这里的s是一个递归“大问题”，s1，s2，……，sn是递归“小问题”，c1，c2，……，cm是若干个可以直接（用非递归方法）解决的问题，g是一个非递归函数，反映了递归问题的结构。</p>
+<p>例如，阶乘函数<br><img src="http://7xrcic.com1.z0.glb.clouddn.com/image/digui/digui3.png" alt="阶乘函数"></p>
+<h2 id="递归的执行过程"><a href="#递归的执行过程" class="headerlink" title="递归的执行过程"></a>递归的执行过程</h2><blockquote>
+<p>实际上，递归是把一个不能或不好直接求解的“大问题”转化为一个或几个“小问题”来解决，再把这些“小问题”进一步分解成更小的“小问题”来解决，如此分解，直至每一个“小问题”都可以直接解决（此时分解到递归出口）。</p>
+</blockquote>
+<h2 id="递归过程和运行时栈"><a href="#递归过程和运行时栈" class="headerlink" title="递归过程和运行时栈"></a>递归过程和运行时栈</h2><p>递归函数的执行过程具有三个特点： </p>
+<ol>
+<li>函数名相同； </li>
+<li>不断地自调用； </li>
+<li>最后被调用的函数要最先被返回。<br>系统用于保存递归函数调用信息的堆栈称作<strong>运行时栈</strong>。<br>每一层递归调用所需保存的信息构成运行时栈的一个<strong>工作记录</strong><br>栈顶的工作记录保存的是当前调用函数的信息，所以栈顶的工作记录也称为<strong>活动记录</strong>。</li>
+</ol>
+<h3 id="Computing-Factorial"><a href="#Computing-Factorial" class="headerlink" title="Computing Factorial"></a>Computing Factorial</h3><p><img src="http://7xrcic.com1.z0.glb.clouddn.com/image/digui/digui4.png" alt=""></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">factorial(<span class="number">3</span>) = <span class="number">3</span> * factorial(<span class="number">2</span>) </span><br><span class="line">           = <span class="number">3</span> * (<span class="number">2</span> * factorial(<span class="number">1</span>)) </span><br><span class="line">           = <span class="number">3</span> * ( <span class="number">2</span> * (<span class="number">1</span> * factorial(<span class="number">0</span>))) </span><br><span class="line">           = <span class="number">3</span> * ( <span class="number">2</span> * ( <span class="number">1</span> * <span class="number">1</span>))) </span><br><span class="line">           = <span class="number">3</span> * ( <span class="number">2</span> * <span class="number">1</span>) </span><br><span class="line">           = <span class="number">3</span> * <span class="number">2</span> </span><br><span class="line">           = <span class="number">6</span></span><br></pre></td></tr></table></figure>
+<h3 id="Trace-Recursive-factorial"><a href="#Trace-Recursive-factorial" class="headerlink" title="Trace Recursive factorial"></a>Trace Recursive factorial</h3><p><img src="http://7xrcic.com1.z0.glb.clouddn.com/image/digui/digui5.png" alt="Trace Recursive factorial"></p>
+<h3 id="factorial-4-Stack-Trace"><a href="#factorial-4-Stack-Trace" class="headerlink" title="factorial(4) Stack Trace"></a>factorial(4) Stack Trace</h3><p><img src="http://7xrcic.com1.z0.glb.clouddn.com/image/digui/digui6.png" alt="factorial(4) Stack Trace"></p>
+<h3 id="Fibonacci-数"><a href="#Fibonacci-数" class="headerlink" title="Fibonacci 数"></a>Fibonacci 数</h3><p>Fibonacci series: 0 1 1 2 3 5 8 13 21 34 55 89…<br>         indices: 0 1 2 3 4 5 6 7  8  9  10 11<br>fib(0) = 0;<br>fib(1) = 1;<br>fib(index) = fib(index -1) + fib(index -2); index &gt;=2</p>
+<p>fib(3) = fib(2) + fib(1) = (fib(1) + fib(0)) + fib(1) = (1 + 0) +fib(1) = 1 + fib(1) = 1 + 1 = 2</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">public static int Fibonacci(int n)&#123;</span><br><span class="line">    <span class="keyword">if</span> (n &lt;= <span class="number">1</span>)  </span><br><span class="line">        <span class="built_in">return</span> n;  </span><br><span class="line">    <span class="keyword">else</span>  </span><br><span class="line">        <span class="built_in">return</span> Fibonacci(n-<span class="number">1</span>) + Fibonacci(n-<span class="number">2</span>);  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>图形讲解如下：<br><img src="http://7xrcic.com1.z0.glb.clouddn.com/image/digui/digui7.png" alt=""></p>
+<h2 id="递归算法的设计方法"><a href="#递归算法的设计方法" class="headerlink" title="递归算法的设计方法"></a>递归算法的设计方法</h2><p>适宜于用递归算法求解的问题的充分必要条件是：</p>
+<ul>
+<li>问题具有某种可借用的类同自身的子问题描述的性质。</li>
+<li>某一有限步的子问题（也称作本原问题）有直接的解存在。</li>
+</ul>
+<p>当一个问题存在上述两个基本要素时，设计该问题的递归算法的方法是：</p>
+<ul>
+<li>把对原问题的求解表示成对子问题求解的形式。</li>
+<li>设计递归出口。</li>
+</ul>
+<p>例：一条信息打印n次。<br>   把这个问题分解成两个子问题：打印一次和打印n-1次。第二个问题和原始问题相同，只是规模小了。递归出口时 n==0. </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">public static void nPrintln(String message, int <span class="built_in">times</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">times</span> &gt;= <span class="number">1</span>) &#123;</span><br><span class="line">        System.out.println(message);</span><br><span class="line">        nPrintln(message, <span class="built_in">times</span> - <span class="number">1</span>);</span><br><span class="line">    &#125; // The base <span class="keyword">case</span> is <span class="built_in">times</span> == <span class="number">0</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>例：回文序列</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">public static boolean isPalindrome(String s) &#123;</span><br><span class="line">	<span class="keyword">if</span> (s.length() &lt;= <span class="number">1</span>) // Base <span class="keyword">case</span></span><br><span class="line">		<span class="built_in">return</span> <span class="literal">true</span>;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span> (s.charAt(<span class="number">0</span>) != s.charAt(s.length() - <span class="number">1</span>)) // Base <span class="keyword">case</span></span><br><span class="line">		<span class="built_in">return</span> <span class="literal">false</span>;</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">		<span class="built_in">return</span> isPalindrome(s.substring(<span class="number">1</span>, s.length() - <span class="number">1</span>));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>输入”abcba”—返回true</p>
+<h2 id="递归辅助方法"><a href="#递归辅助方法" class="headerlink" title="递归辅助方法"></a>递归辅助方法</h2><p>前面的例子 isPalindrome 效率差，原因是它每次递归调用都会创建一个新的字符串。可以用辅助方法改进之:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">public static boolean isPalindrome(String s) &#123;</span><br><span class="line">	<span class="built_in">return</span> isPalindrome(s, <span class="number">0</span>, s.length() - <span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public static boolean isPalindrome(String s, int low, int high) &#123;</span><br><span class="line">	<span class="keyword">if</span> (high &lt;= low) // Base <span class="keyword">case</span></span><br><span class="line">		<span class="built_in">return</span> <span class="literal">true</span>;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span> (s.charAt(low) != s.charAt(high)) // Base <span class="keyword">case</span></span><br><span class="line">		<span class="built_in">return</span> <span class="literal">false</span>;</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">		<span class="built_in">return</span> isPalindrome(s, low + <span class="number">1</span>, high - <span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="递归技术的关键问题"><a href="#递归技术的关键问题" class="headerlink" title="递归技术的关键问题"></a>递归技术的关键问题</h2><ul>
+<li>为防止递归的无休止调用，在递归函数中要及时返回，这就是结束条件的作用。在所有的递归函数中都有一个终止递归的条件判断。</li>
+<li>递归函数可以简化程序，但一般不能提高程序的执行效率。</li>
+</ul>
+<h2 id="案例一：文件夹大小"><a href="#案例一：文件夹大小" class="headerlink" title="案例一：文件夹大小"></a>案例一：文件夹大小</h2><p>前面的问题也可以不用递归就解决，但是有些问题不用递归很难解决。比如：统计文件夹的大小问题，它是文件夹下所有文件大小的总和，而一个文件夹有可能包括子文件夹，假设文件夹结构如下：<br><img src="http://7xrcic.com1.z0.glb.clouddn.com/image/digui/digui8.png" alt=""></p>
+<p>文件夹大小可以递归地定义为:<br><img src="http://7xrcic.com1.z0.glb.clouddn.com/image/digui/digui9.png" alt=""></p>
+<h2 id="案例二-：汉诺塔问题的递归求解过程"><a href="#案例二-：汉诺塔问题的递归求解过程" class="headerlink" title="案例二 ：汉诺塔问题的递归求解过程"></a>案例二 ：汉诺塔问题的递归求解过程</h2><p><img src="http://7xrcic.com1.z0.glb.clouddn.com/image/digui/digui10.png" alt=""></p>
+<p>汉诺塔(Tower of Hanoi)问题的解法：<br>   如果 n = 1，则将这一个盘子直接从 A 柱移到 C 柱上。否则，执行以下三步：<br>   ① 用 C 柱做过渡，将 A 柱上的 (n-1) 个盘子移到 B 柱上：<br>   ② 将 A 柱上最后一个盘子直接移到 C 柱上；<br>   ③ 用 A 柱做过渡，将 B 柱上的 (n-1) 个盘子移到 C 柱上。</p>
+<p>根据以上的分析，不难写出程序：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public static void Hanoi(int n, char A, char B, char C) &#123;</span><br><span class="line">    <span class="keyword">if</span> (n == <span class="number">1</span>) &#123; //end condition</span><br><span class="line">        move(A, C); //‘move’ can be defined to be a <span class="built_in">print</span> <span class="keyword">function</span></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        Hanoi(n-<span class="number">1</span>, A, C, B); //move sub [n-<span class="number">1</span>] pans from A to B</span><br><span class="line">        move(A, C); //move the bottom(max) pan to C</span><br><span class="line">        Hanoi(n-<span class="number">1</span>, B, A, C); //move sub [n-<span class="number">1</span>] pans from B to C</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="案例三：分形"><a href="#案例三：分形" class="headerlink" title="案例三：分形"></a>案例三：分形</h2><p>分形是一种几何图形，它划分成的部分都和整体图形相同，只是规模更小。介绍其中一种 Sierpinski 三角</p>
+<h3 id="Sierpinski-Triangle"><a href="#Sierpinski-Triangle" class="headerlink" title="Sierpinski Triangle"></a>Sierpinski Triangle</h3><ol>
+<li>开始第0层是一个等边三角形，如图 (a)。</li>
+<li>连接第0层每个边的中点得到第一层Sierpinski 三角，如图(b)。</li>
+<li>中间的三角形不考虑，把其余的三个三角形的中点相连，得到第2层的Sierpinski 三角，如图(c)。</li>
+<li>递归地重复这个过程，得到第3、4等等Sierpinski 三角，如图(d)。</li>
+</ol>
+<p><img src="http://7xrcic.com1.z0.glb.clouddn.com/image/digui/digui11.png" alt="">  <img src="http://7xrcic.com1.z0.glb.clouddn.com/image/digui/digui12.png" alt=""> <img src="http://7xrcic.com1.z0.glb.clouddn.com/image/digui/digui13.png" alt=""> <img src="http://7xrcic.com1.z0.glb.clouddn.com/image/digui/digui14.png" alt=""></p>
+<h3 id="Sierpinski-Triangle-Solution"><a href="#Sierpinski-Triangle-Solution" class="headerlink" title="Sierpinski Triangle Solution"></a>Sierpinski Triangle Solution</h3><p><img src="http://7xrcic.com1.z0.glb.clouddn.com/image/digui/digui15.png" alt=""></p>
+<h2 id="案例四：八皇后"><a href="#案例四：八皇后" class="headerlink" title="案例四：八皇后"></a>案例四：八皇后</h2><p><img src="http://7xrcic.com1.z0.glb.clouddn.com/image/digui/digui16.png" alt=""> <img src="http://7xrcic.com1.z0.glb.clouddn.com/image/digui/eightqueens1.png" alt="eightqueens"> <img src="http://7xrcic.com1.z0.glb.clouddn.com/image/digui/digui17.png" alt=""></p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="http://chenqx.github.io/2014/09/29/Algorithm-Recursive-Programming/" target="_blank" rel="external">递归算法详解</a></p>
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Java/" rel="tag">#Java</a>
+          
+            <a href="/tags/算法/" rel="tag">#算法</a>
+          
+            <a href="/tags/递归/" rel="tag">#递归</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/04/29/多线程/" rel="next" title="多线程">
+                <i class="fa fa-chevron-left"></i> 多线程
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/05/15/generic-programming/" rel="prev" title="范型程序设计">
+                范型程序设计 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  <p>热评文章</p>
+  <div class="ds-top-threads" data-range="weekly" data-num-items="4"></div>
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/05/11/algorithm-recursive-programming/"
+           data-title="算法递归程序设计" data-url="http://xiaoqianchang.github.io/2017/05/11/algorithm-recursive-programming/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.jpg"
+               alt="xiaoqianchang" />
+          <p class="site-author-name" itemprop="name">xiaoqianchang</p>
+          <p class="site-description motion-element" itemprop="description">学习总结 思考感悟 知识管理</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">18</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+          
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/xiaoqianchang" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> github
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/2470252470" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> weibo
+                  
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+            <p class="site-author-name">友情推荐</p>
+            
+              <span class="links-of-author-item">
+                <a href="http://daimajia.com/" target="_blank">代码家</a>
+              </span>
+            
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#学习目标"><span class="nav-number">1.</span> <span class="nav-text">学习目标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#引言"><span class="nav-number">2.</span> <span class="nav-text">引言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#递归的概念"><span class="nav-number">3.</span> <span class="nav-text">递归的概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#递归的定义"><span class="nav-number">4.</span> <span class="nav-text">递归的定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#递归分类"><span class="nav-number">5.</span> <span class="nav-text">递归分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#递归模型"><span class="nav-number">6.</span> <span class="nav-text">递归模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#递归的执行过程"><span class="nav-number">7.</span> <span class="nav-text">递归的执行过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#递归过程和运行时栈"><span class="nav-number">8.</span> <span class="nav-text">递归过程和运行时栈</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Computing-Factorial"><span class="nav-number">8.1.</span> <span class="nav-text">Computing Factorial</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Trace-Recursive-factorial"><span class="nav-number">8.2.</span> <span class="nav-text">Trace Recursive factorial</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#factorial-4-Stack-Trace"><span class="nav-number">8.3.</span> <span class="nav-text">factorial(4) Stack Trace</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Fibonacci-数"><span class="nav-number">8.4.</span> <span class="nav-text">Fibonacci 数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#递归算法的设计方法"><span class="nav-number">9.</span> <span class="nav-text">递归算法的设计方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#递归辅助方法"><span class="nav-number">10.</span> <span class="nav-text">递归辅助方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#递归技术的关键问题"><span class="nav-number">11.</span> <span class="nav-text">递归技术的关键问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#案例一：文件夹大小"><span class="nav-number">12.</span> <span class="nav-text">案例一：文件夹大小</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#案例二-：汉诺塔问题的递归求解过程"><span class="nav-number">13.</span> <span class="nav-text">案例二 ：汉诺塔问题的递归求解过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#案例三：分形"><span class="nav-number">14.</span> <span class="nav-text">案例三：分形</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Sierpinski-Triangle"><span class="nav-number">14.1.</span> <span class="nav-text">Sierpinski Triangle</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Sierpinski-Triangle-Solution"><span class="nav-number">14.2.</span> <span class="nav-text">Sierpinski Triangle Solution</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#案例四：八皇后"><span class="nav-number">15.</span> <span class="nav-text">案例四：八皇后</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">16.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">xiaoqianchang</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<div>
+  <span id="busuanzi_container_site_pv">
+    本站总访问量<span id="busuanzi_value_site_pv"></span>次
+  </span>
+
+  <span id="busuanzi_container_site_uv">
+    本站访客数<span id="busuanzi_value_site_uv"></span>人次
+  </span>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  
+
+
+  
+
+
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
+
+
+
+  
+  
+
+  
+  
+<script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = NexT.utils.escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    NexT.motion.middleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+
+      if (CONFIG.sidebar.display === 'post' || CONFIG.sidebar.display === 'always') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          NexT.utils.displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"xiaoqianchang-notes"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("BUgk1wImB7GSjzzumtMuKfOs-gzGzoHsz", "LmO0kbquQbHEAics2yAuozJH");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+
+</body>
+</html>

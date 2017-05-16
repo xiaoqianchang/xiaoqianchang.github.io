@@ -1,0 +1,1057 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Java,collections," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="xiaoqianchang" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
+
+
+
+
+
+
+<meta name="description" content="学习目标
+Java集合框架的层次结构
+Collection 接口
+HashSet 、LinkedHashSet 和 TreeSet
+Comparable 和Comparator 接口
+ArrayList 和LinkedList
+规则集和线性表性能比较
+Vector 和Stack
+Queue和 PriorityQueue
+Map接口及 HashMap, LinkedHashMap和TreeMap">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java 集合框架">
+<meta property="og:url" content="http://xiaoqianchang.github.io/2017/05/15/java-collections-framework/index.html">
+<meta property="og:site_name" content="xiaoqianchang">
+<meta property="og:description" content="学习目标
+Java集合框架的层次结构
+Collection 接口
+HashSet 、LinkedHashSet 和 TreeSet
+Comparable 和Comparator 接口
+ArrayList 和LinkedList
+规则集和线性表性能比较
+Vector 和Stack
+Queue和 PriorityQueue
+Map接口及 HashMap, LinkedHashMap和TreeMap">
+<meta property="og:image" content="http://7xrcic.com1.z0.glb.clouddn.com/image/collections/collections1.png">
+<meta property="og:image" content="http://7xrcic.com1.z0.glb.clouddn.com/image/collections/collections2.png">
+<meta property="og:image" content="http://7xrcic.com1.z0.glb.clouddn.com/image/collections/collections3.png">
+<meta property="og:image" content="http://7xrcic.com1.z0.glb.clouddn.com/image/collections/collections4.png">
+<meta property="og:image" content="http://7xrcic.com1.z0.glb.clouddn.com/image/collections/collections5.png">
+<meta property="og:image" content="http://7xrcic.com1.z0.glb.clouddn.com/image/collections/collections6.png">
+<meta property="og:image" content="http://7xrcic.com1.z0.glb.clouddn.com/image/collections/collections7.png">
+<meta property="og:image" content="http://7xrcic.com1.z0.glb.clouddn.com/image/collections/collections8.png">
+<meta property="og:image" content="http://7xrcic.com1.z0.glb.clouddn.com/image/collections/collections9.png">
+<meta property="og:image" content="http://7xrcic.com1.z0.glb.clouddn.com/image/collections/collections10.png">
+<meta property="og:image" content="http://7xrcic.com1.z0.glb.clouddn.com/image/collections/collections11.png">
+<meta property="og:image" content="http://7xrcic.com1.z0.glb.clouddn.com/image/collections/collections12.png">
+<meta property="og:image" content="http://7xrcic.com1.z0.glb.clouddn.com/image/collections/collections13.png">
+<meta property="og:image" content="http://7xrcic.com1.z0.glb.clouddn.com/image/collections/collections14.png">
+<meta property="og:image" content="http://7xrcic.com1.z0.glb.clouddn.com/image/collections/collections15.png">
+<meta property="og:image" content="http://7xrcic.com1.z0.glb.clouddn.com/image/collections/collections16.png">
+<meta property="og:image" content="http://7xrcic.com1.z0.glb.clouddn.com/image/collections/collections17.png">
+<meta property="og:updated_time" content="2017-05-16T04:11:36.776Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java 集合框架">
+<meta name="twitter:description" content="学习目标
+Java集合框架的层次结构
+Collection 接口
+HashSet 、LinkedHashSet 和 TreeSet
+Comparable 和Comparator 接口
+ArrayList 和LinkedList
+规则集和线性表性能比较
+Vector 和Stack
+Queue和 PriorityQueue
+Map接口及 HashMap, LinkedHashMap和TreeMap">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"right","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> Java 集合框架 | xiaoqianchang </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?3d10640fccdd16cb0ba427bbac5a07db";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">xiaoqianchang</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu menu-left">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+      
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', '4KRHx7T9426EJKxriKd6','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Java 集合框架
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-05-15T21:19:11+08:00" content="2017-05-15">
+              2017-05-15
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/05/15/java-collections-framework/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/05/15/java-collections-framework/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2017/05/15/java-collections-framework/" class="leancloud_visitors" data-flag-title="Java 集合框架">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span> 
+               <span class="leancloud-visitors-count"></span> 
+              </span>
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="学习目标"><a href="#学习目标" class="headerlink" title="学习目标"></a>学习目标</h2><ul>
+<li>Java集合框架的层次结构</li>
+<li>Collection 接口</li>
+<li>HashSet 、LinkedHashSet 和 TreeSet</li>
+<li>Comparable 和Comparator 接口</li>
+<li>ArrayList 和LinkedList</li>
+<li>规则集和线性表性能比较</li>
+<li>Vector 和Stack</li>
+<li>Queue和 PriorityQueue</li>
+<li>Map接口及 HashMap, LinkedHashMap和TreeMap</li>
+</ul>
+<a id="more"></a>
+<h2 id="Java集合框架的层次结构"><a href="#Java集合框架的层次结构" class="headerlink" title="Java集合框架的层次结构"></a>Java集合框架的层次结构</h2><ul>
+<li>一个集合就是一个容器对象，用来代表一组对象，其中的每个对象称为元素。</li>
+<li>Java 集合框架支持三种类型的集合：规则集sets, 线性表lists, 和映射 maps。</li>
+</ul>
+<p>Set 和 List 是Collection的子接口<br><img src="http://7xrcic.com1.z0.glb.clouddn.com/image/collections/collections1.png" alt=""></p>
+<p>映射的实例是一组关联关键字的对象。<br>可以使用关键字从映射中获取一个对象或者把一个对象放到映射中<br><img src="http://7xrcic.com1.z0.glb.clouddn.com/image/collections/collections2.png" alt=""></p>
+<h2 id="Collection-接口"><a href="#Collection-接口" class="headerlink" title="Collection 接口"></a>Collection 接口</h2><p>Collection接口是处理对象集合的根接口<br><img src="http://7xrcic.com1.z0.glb.clouddn.com/image/collections/collections3.png" alt=""></p>
+<h3 id="Set-接口"><a href="#Set-接口" class="headerlink" title="Set 接口"></a>Set 接口</h3><ul>
+<li>Set接口继承 Collection 接口。它没有引入新的方法或者常量，只是规定Set的实例不能包含重复元素。</li>
+<li>实现Set的类必须确保没有重复元素添加到这个规则集。也就是说，在一个规则集中，一定不存在两个元素e1 、 e2 使得 e1.equals(e2) 的返回值是true。</li>
+</ul>
+<h3 id="Set-接口继承结构"><a href="#Set-接口继承结构" class="headerlink" title="Set 接口继承结构"></a>Set 接口继承结构</h3><p><img src="http://7xrcic.com1.z0.glb.clouddn.com/image/collections/collections4.png" alt=""></p>
+<h3 id="AbstractSet-类"><a href="#AbstractSet-类" class="headerlink" title="AbstractSet 类"></a>AbstractSet 类</h3><ul>
+<li>AbstractSet 类是一个便利类，它继承 AbstractCollection 并实现Set。</li>
+<li>AbstractSet类提供了 equals 和 hashCode 方法的具体实现。一个规则集的散列码是这个规则集中所有元素散列码的和。</li>
+<li>由于AbstractSet类没有实现size 和iterator 方法，所以 AbstractSet 是一个抽象类。</li>
+</ul>
+<h3 id="HashSet-类"><a href="#HashSet-类" class="headerlink" title="HashSet 类"></a>HashSet 类</h3><ul>
+<li>HashSet 类是一个实现Set接口的具体类。</li>
+<li>它可以用来存储互不相同的元素。</li>
+<li>考虑到效率，添加到散列集中对象必须以一种正确分散散列码的方式实现 hashCode 方法。</li>
+</ul>
+<p>for-each 循环<br>可以使用 JDK 1.5中的加强循环来替代迭代器:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (Object element: <span class="built_in">set</span>)</span><br><span class="line">  System.out.print(element.toString() + <span class="string">" "</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="SortedSet-接口和-TreeSet-类"><a href="#SortedSet-接口和-TreeSet-类" class="headerlink" title="SortedSet 接口和 TreeSet 类"></a>SortedSet 接口和 TreeSet 类</h3><ul>
+<li>SortedSet 是 Set的一个子接口，它确保规则集中的元素是有序的。</li>
+<li>TreeSet 是实现 SortedSet 接口的一个具体类。可以使用迭代器以排序次序遍历规则集元素有两种排序方式。</li>
+</ul>
+<p>使用 TreeSet 对规则集元素排序</p>
+<p>方式一：使用 Comparable 接口。</p>
+<p>方式二：如果元素所属的类没有实现 Comparable 接口，或者在实现 Comparable 接口的类中不想使用 compareTo 方法，那么就可以指定一个比较器。</p>
+<h3 id="Comparator-接口"><a href="#Comparator-接口" class="headerlink" title="Comparator 接口"></a>Comparator 接口</h3><ul>
+<li>有时希望将不同类型的元素插入到树形集。这些元素可能不是 Comparable<br>的实例或者是不可以比较的。这时就可以定义比较器来比较这些元素。</li>
+<li>为了做到这点，需要创建一个实现 java.util.Comparator 接口的类。 Comparator 接口有两个方法：<br>compare 和 equals。</li>
+</ul>
+<p><code>public int compare(Object element1, Object element2)</code><br>如果 element1 小于 element2 ，就返回一个负值；如果 element1 大于element2，就返回一个正值；若相等就返回0</p>
+<p><code>public boolean equals(Object element)</code><br>如果指定对象也是一个比较器，并且与这个比较器具有相同的排序，就返回true</p>
+<h2 id="List-接口"><a href="#List-接口" class="headerlink" title="List 接口"></a>List 接口</h2><ol>
+<li>规则集中只能存放不重复的元素。</li>
+<li>为了允许在集合内存储重复元素，需要使用线性表。</li>
+<li>线性表不但可以存储重复元素，还可以让用户指定元素存储位置。</li>
+<li>用户可以使用下标来随机访问元素。</li>
+</ol>
+<p><img src="http://7xrcic.com1.z0.glb.clouddn.com/image/collections/collections5.png" alt=""></p>
+<h3 id="List-迭代器"><a href="#List-迭代器" class="headerlink" title="List 迭代器"></a>List 迭代器</h3><p><img src="http://7xrcic.com1.z0.glb.clouddn.com/image/collections/collections6.png" alt=""></p>
+<h3 id="ArrayList-和-LinkedList"><a href="#ArrayList-和-LinkedList" class="headerlink" title="ArrayList 和 LinkedList"></a>ArrayList 和 LinkedList</h3><p>ArrayList 类和 LinkedList 类是 实现 List 接口的两个具体类。<br>要选用这两种类中的哪一个取决于特定需求：</p>
+<ul>
+<li>如果需要通过下标随机访问元素，除了在末尾之外，无需再其他位置上插入或者删除元素，那么 ArrayList 提供了更高效率。</li>
+<li>如果应用程序需要在线性表的任意位置上插入或者删除元素，就应该选择LinkedList。</li>
+<li>线性表的大小是可以动态增大或者减小的，而数组一旦被创建，它的大小就是固定的。如果应用程序不需要插入或者删除元素，那么数组是效率最高的数据结构。</li>
+</ul>
+<p>ArrayList：<br><img src="http://7xrcic.com1.z0.glb.clouddn.com/image/collections/collections7.png" alt=""></p>
+<p>LinkedList：<br><img src="http://7xrcic.com1.z0.glb.clouddn.com/image/collections/collections8.png" alt=""></p>
+<h2 id="Collections-类"><a href="#Collections-类" class="headerlink" title="Collections 类"></a>Collections 类</h2><blockquote>
+<p>Collections 类提供了许多静态方法用来操作集合和映射、创建同步集合类、创建只读集合类。</p>
+</blockquote>
+<p>Collections 类 UML 图：<br><img src="http://7xrcic.com1.z0.glb.clouddn.com/image/collections/collections9.png" alt=""></p>
+<h2 id="规则集和线性表的性能"><a href="#规则集和线性表的性能" class="headerlink" title="规则集和线性表的性能"></a>规则集和线性表的性能</h2><h2 id="Vector-和-Stack"><a href="#Vector-和-Stack" class="headerlink" title="Vector 和 Stack"></a>Vector 和 Stack</h2><blockquote>
+<p>Java 集合框架式在Java2中引入的。Java2之前也支持一些数据结构，其中就有 Vector 类和 Stack 类。为了适应Java集合框架，这些类被重新设计，但为了向后兼容，保留了它们旧形式的方法。</p>
+</blockquote>
+<h3 id="Vector-类"><a href="#Vector-类" class="headerlink" title="Vector 类"></a>Vector 类</h3><blockquote>
+<p>在 Java 2中，除了包含用于访问和修改向量的同步方法外， Vector 与 ArrayList 是一样的。至此介绍过的集合数据结构中没有一个是同步的。如果需要同步，可以使用集合类中同步版本。</p>
+</blockquote>
+<p><img src="http://7xrcic.com1.z0.glb.clouddn.com/image/collections/collections10.png" alt=""></p>
+<h3 id="Stack-类"><a href="#Stack-类" class="headerlink" title="Stack 类"></a>Stack 类</h3><blockquote>
+<p>Stack 类是用来表示后进先出的栈对象的 。只有栈顶元素可以被访问, 可以返回、插入、删除栈顶元素。</p>
+</blockquote>
+<p><img src="http://7xrcic.com1.z0.glb.clouddn.com/image/collections/collections11.png" alt=""></p>
+<h2 id="队列和优先队列"><a href="#队列和优先队列" class="headerlink" title="队列和优先队列"></a>队列和优先队列</h2><ul>
+<li>队列是一种先进先出的数据结构。在队尾添加元素，在队头删除元素。</li>
+<li>在优先队列中，元素被赋予优先级。当访问元素时，拥有最高优先级的元素首先被删除。</li>
+</ul>
+<h3 id="Queue-接口"><a href="#Queue-接口" class="headerlink" title="Queue 接口"></a>Queue 接口</h3><p><img src="http://7xrcic.com1.z0.glb.clouddn.com/image/collections/collections12.png" alt=""></p>
+<h3 id="PriorityQueue-类"><a href="#PriorityQueue-类" class="headerlink" title="PriorityQueue 类"></a>PriorityQueue 类</h3><p><img src="http://7xrcic.com1.z0.glb.clouddn.com/image/collections/collections13.png" alt=""></p>
+<h2 id="Map-接口"><a href="#Map-接口" class="headerlink" title="Map 接口"></a>Map 接口</h2><blockquote>
+<p>Map 是一种依照键值存储元素的容器，键值类似于下标。在List中，下标是整数的；而在 Map中，键值可以是任意类型。</p>
+</blockquote>
+<p><img src="http://7xrcic.com1.z0.glb.clouddn.com/image/collections/collections14.png" alt=""></p>
+<h3 id="Map-接口-UML-图"><a href="#Map-接口-UML-图" class="headerlink" title="Map 接口 UML 图"></a>Map 接口 UML 图</h3><p><img src="http://7xrcic.com1.z0.glb.clouddn.com/image/collections/collections15.png" alt=""></p>
+<h3 id="具体Map-类"><a href="#具体Map-类" class="headerlink" title="具体Map 类"></a>具体Map 类</h3><p><img src="http://7xrcic.com1.z0.glb.clouddn.com/image/collections/collections16.png" alt=""></p>
+<h3 id="HashMap-和-TreeMap"><a href="#HashMap-和-TreeMap" class="headerlink" title="HashMap 和 TreeMap"></a>HashMap 和 TreeMap</h3><ul>
+<li>HashMap 和 TreeMap 类是Map 接口的两个具体实现。</li>
+<li>对于定位一个值，插入一个映射或者删除一个映射而言， HashMap类是高效的。</li>
+<li>TreeMap 类实现了，所以它在遍历排好顺序的键值时是高效的。</li>
+</ul>
+<h4 id="LinkedHashMap"><a href="#LinkedHashMap" class="headerlink" title="LinkedHashMap"></a>LinkedHashMap</h4><ul>
+<li>LinkedHashMap 在JDK 1.4中引入。它用链表实现来扩展 HashMap，支持映射中条目的排序。</li>
+<li>HashMap中的条目是没有顺序的，但是在 LinkedHashMap 中，元素既可以按照它们插入映射的顺序排序 (称为插入顺序), 也可以按照它们最后一次访问时的顺序，从早到晚排序 (访问顺序). LinkedHashMap 的无参构造方法是以插入顺序来创建对象的。</li>
+<li>要按访问顺序创建LinkedHashMap 对象，应使用LinkedHashMap(initialCapacity, loadFactor, true)。</li>
+</ul>
+<h2 id="Arrays-类"><a href="#Arrays-类" class="headerlink" title="Arrays 类"></a>Arrays 类</h2><blockquote>
+<p>Arrays 类包含许多静态方法用于对数组进行排序、查找、比较数组、填充数组元素，以及把数组转换成线性表。</p>
+</blockquote>
+<h3 id="Arrays-类-UML-图"><a href="#Arrays-类-UML-图" class="headerlink" title="Arrays 类 UML 图"></a>Arrays 类 UML 图</h3><p><img src="http://7xrcic.com1.z0.glb.clouddn.com/image/collections/collections17.png" alt=""></p>
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Java/" rel="tag">#Java</a>
+          
+            <a href="/tags/collections/" rel="tag">#collections</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/05/15/generic-programming/" rel="next" title="范型程序设计">
+                <i class="fa fa-chevron-left"></i> 范型程序设计
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/05/15/annotation/" rel="prev" title="注解">
+                注解 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  <p>热评文章</p>
+  <div class="ds-top-threads" data-range="weekly" data-num-items="4"></div>
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/05/15/java-collections-framework/"
+           data-title="Java 集合框架" data-url="http://xiaoqianchang.github.io/2017/05/15/java-collections-framework/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.jpg"
+               alt="xiaoqianchang" />
+          <p class="site-author-name" itemprop="name">xiaoqianchang</p>
+          <p class="site-description motion-element" itemprop="description">学习总结 思考感悟 知识管理</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">18</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+          
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/xiaoqianchang" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> github
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/2470252470" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> weibo
+                  
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+            <p class="site-author-name">友情推荐</p>
+            
+              <span class="links-of-author-item">
+                <a href="http://daimajia.com/" target="_blank">代码家</a>
+              </span>
+            
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#学习目标"><span class="nav-number">1.</span> <span class="nav-text">学习目标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java集合框架的层次结构"><span class="nav-number">2.</span> <span class="nav-text">Java集合框架的层次结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Collection-接口"><span class="nav-number">3.</span> <span class="nav-text">Collection 接口</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Set-接口"><span class="nav-number">3.1.</span> <span class="nav-text">Set 接口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Set-接口继承结构"><span class="nav-number">3.2.</span> <span class="nav-text">Set 接口继承结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#AbstractSet-类"><span class="nav-number">3.3.</span> <span class="nav-text">AbstractSet 类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HashSet-类"><span class="nav-number">3.4.</span> <span class="nav-text">HashSet 类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SortedSet-接口和-TreeSet-类"><span class="nav-number">3.5.</span> <span class="nav-text">SortedSet 接口和 TreeSet 类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Comparator-接口"><span class="nav-number">3.6.</span> <span class="nav-text">Comparator 接口</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#List-接口"><span class="nav-number">4.</span> <span class="nav-text">List 接口</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#List-迭代器"><span class="nav-number">4.1.</span> <span class="nav-text">List 迭代器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ArrayList-和-LinkedList"><span class="nav-number">4.2.</span> <span class="nav-text">ArrayList 和 LinkedList</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Collections-类"><span class="nav-number">5.</span> <span class="nav-text">Collections 类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#规则集和线性表的性能"><span class="nav-number">6.</span> <span class="nav-text">规则集和线性表的性能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Vector-和-Stack"><span class="nav-number">7.</span> <span class="nav-text">Vector 和 Stack</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Vector-类"><span class="nav-number">7.1.</span> <span class="nav-text">Vector 类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Stack-类"><span class="nav-number">7.2.</span> <span class="nav-text">Stack 类</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#队列和优先队列"><span class="nav-number">8.</span> <span class="nav-text">队列和优先队列</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Queue-接口"><span class="nav-number">8.1.</span> <span class="nav-text">Queue 接口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PriorityQueue-类"><span class="nav-number">8.2.</span> <span class="nav-text">PriorityQueue 类</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Map-接口"><span class="nav-number">9.</span> <span class="nav-text">Map 接口</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Map-接口-UML-图"><span class="nav-number">9.1.</span> <span class="nav-text">Map 接口 UML 图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#具体Map-类"><span class="nav-number">9.2.</span> <span class="nav-text">具体Map 类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HashMap-和-TreeMap"><span class="nav-number">9.3.</span> <span class="nav-text">HashMap 和 TreeMap</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#LinkedHashMap"><span class="nav-number">9.3.1.</span> <span class="nav-text">LinkedHashMap</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Arrays-类"><span class="nav-number">10.</span> <span class="nav-text">Arrays 类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Arrays-类-UML-图"><span class="nav-number">10.1.</span> <span class="nav-text">Arrays 类 UML 图</span></a></li></ol></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">xiaoqianchang</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<div>
+  <span id="busuanzi_container_site_pv">
+    本站总访问量<span id="busuanzi_value_site_pv"></span>次
+  </span>
+
+  <span id="busuanzi_container_site_uv">
+    本站访客数<span id="busuanzi_value_site_uv"></span>人次
+  </span>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  
+
+
+  
+
+
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
+
+
+
+  
+  
+
+  
+  
+<script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = NexT.utils.escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    NexT.motion.middleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+
+      if (CONFIG.sidebar.display === 'post' || CONFIG.sidebar.display === 'always') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          NexT.utils.displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"xiaoqianchang-notes"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("BUgk1wImB7GSjzzumtMuKfOs-gzGzoHsz", "LmO0kbquQbHEAics2yAuozJH");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+
+</body>
+</html>
